@@ -1,0 +1,175 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+  suffix?: string;
+  prefix?: string;
+}
+
+interface Props {
+  stats: Stat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="stats-grid">
+  {stats.map((stat, index) => (
+    <div class="stat-card" data-index={index}>
+      <div class="stat-value" data-value={stat.value} data-prefix={stat.prefix || ''} data-suffix={stat.suffix || ''}>
+        {stat.prefix || ''}<span class="counter">0</span>{stat.suffix || ''}
+      </div>
+      <div class="stat-label">{stat.label}</div>
+      <div class="stat-glow"></div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+  }
+
+  .stat-card {
+    position: relative;
+    padding: var(--space-lg);
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    border-color: var(--color-strike);
+    transform: translateY(-4px);
+  }
+
+  .stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .stat-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-strike), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .stat-card:hover .stat-glow {
+    opacity: 1;
+  }
+
+  /* Animation states */
+  .stat-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .stat-card.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0s; }
+  .stat-card:nth-child(2) { animation-delay: 0.1s; }
+  .stat-card:nth-child(3) { animation-delay: 0.2s; }
+  .stat-card:nth-child(4) { animation-delay: 0.3s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Animated counter with easing
+  function animateCounter(element: HTMLElement, target: number, duration: number = 2000) {
+    const start = 0;
+    const startTime = performance.now();
+
+    function easeOutQuart(x: number): number {
+      return 1 - Math.pow(1 - x, 4);
+    }
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutQuart(progress);
+      const current = Math.floor(start + (target - start) * easedProgress);
+
+      element.textContent = current.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Intersection Observer for triggering animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target as HTMLElement;
+        card.classList.add('visible');
+
+        // Trigger counter animation
+        const valueElement = card.querySelector('.stat-value') as HTMLElement;
+        const counter = valueElement.querySelector('.counter') as HTMLElement;
+        const targetValue = parseInt(valueElement.dataset.value || '0');
+
+        // Delay counter animation slightly after card appears
+        setTimeout(() => {
+          animateCounter(counter, targetValue, 2000);
+        }, 300);
+
+        observer.unobserve(card);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  // Observe all stat cards
+  document.querySelectorAll('.stat-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>

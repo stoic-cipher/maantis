@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Obsidian workspace and cache files (keep .obsidian if you want to share settings)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/

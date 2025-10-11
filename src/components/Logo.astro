@@ -1,0 +1,21 @@
+---
+import MaantisLogoIcon from './react/MaantisLogoIcon';
+
+interface Props {
+  size?: 'small' | 'medium' | 'large';
+  interactive?: boolean;
+  showText?: boolean;
+  autoRotate?: boolean;
+}
+
+const { size = 'medium', interactive = true, showText = false, autoRotate = false } = Astro.props;
+---
+
+<MaantisLogoIcon
+  size={size}
+  interactive={interactive}
+  showText={showText}
+  autoRotate={autoRotate}
+  variant="neural"
+  client:load
+/>

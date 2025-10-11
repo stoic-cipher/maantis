@@ -1,0 +1,375 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Distributed Systems"
+  description="Microservices, event-driven architectures, and real-time data pipelines. Built for resilience under pressure and designed to perform when it matters."
+>
+  <main class="service-page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="title">Distributed Systems</h1>
+        <p class="subtitle">
+          Microservices, event-driven architectures, and real-time data pipelines.
+          Built for resilience under pressure and designed to perform when it matters.
+        </p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+      <div class="container">
+        <h2>What We Build</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Microservices Architecture</h3>
+            <ul>
+              <li>Service decomposition and domain boundaries</li>
+              <li>API gateway patterns (REST, GraphQL, gRPC)</li>
+              <li>Service discovery and registration</li>
+              <li>Inter-service communication strategies</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Event-Driven Systems</h3>
+            <ul>
+              <li>Kafka, RabbitMQ, AWS SQS/SNS</li>
+              <li>Event sourcing and CQRS patterns</li>
+              <li>Asynchronous processing pipelines</li>
+              <li>Exactly-once delivery guarantees</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Real-Time Data Processing</h3>
+            <ul>
+              <li>Stream processing (Kafka Streams, Flink)</li>
+              <li>WebSocket and Server-Sent Events</li>
+              <li>Real-time analytics and aggregations</li>
+              <li>Live dashboards and monitoring</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Service Mesh</h3>
+            <ul>
+              <li>Istio, Linkerd, Consul Connect</li>
+              <li>Traffic management and routing</li>
+              <li>Mutual TLS and service-to-service auth</li>
+              <li>Circuit breakers and retry logic</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Data Consistency</h3>
+            <ul>
+              <li>Distributed transactions (Saga pattern)</li>
+              <li>Eventual consistency strategies</li>
+              <li>Conflict resolution and reconciliation</li>
+              <li>Two-phase commit protocols</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Observability</h3>
+            <ul>
+              <li>Distributed tracing (Jaeger, Zipkin)</li>
+              <li>Centralized logging (ELK, Loki)</li>
+              <li>Metrics aggregation (Prometheus)</li>
+              <li>Service dependency mapping</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles-section">
+      <div class="container">
+        <h2 class="section-title">Design Principles</h2>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <h3>Fault Tolerance</h3>
+            <p>
+              Systems fail. Network partitions happen. We design for failure as the default state.
+              Circuit breakers, bulkheads, and graceful degradation ensure your system stays operational even when components fail.
+            </p>
+          </div>
+
+          <div class="principle-card">
+            <h3>Horizontal Scalability</h3>
+            <p>
+              Add capacity by adding instances, not by upgrading hardware.
+              Stateless services, load balancing, and distributed state management enable linear scaling.
+            </p>
+          </div>
+
+          <div class="principle-card">
+            <h3>Eventual Consistency</h3>
+            <p>
+              Not every operation needs immediate consistency. We help you identify where eventual consistency is acceptable,
+              trading strict consistency for availability and partition tolerance (CAP theorem).
+            </p>
+          </div>
+
+          <div class="principle-card">
+            <h3>Decoupled Services</h3>
+            <p>
+              Services that don't know about each other can't create cascading failures.
+              Event-driven architectures and message queues create natural isolation boundaries.
+            </p>
+          </div>
+
+          <div class="principle-card">
+            <h3>Idempotency</h3>
+            <p>
+              Operations should be safe to retry. When network failures occur, idempotent APIs ensure duplicate messages don't corrupt data.
+            </p>
+          </div>
+
+          <div class="principle-card">
+            <h3>Backpressure</h3>
+            <p>
+              When downstream services slow down, upstream services must adapt. Backpressure mechanisms prevent cascade failures and resource exhaustion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patterns -->
+    <section class="patterns-section">
+      <div class="container">
+        <h2 class="section-title">Common Patterns We Implement</h2>
+        <div class="patterns-list">
+          <div class="pattern-item">
+            <h3>Saga Pattern</h3>
+            <p>Distributed transactions across services using compensating transactions for rollback.</p>
+          </div>
+
+          <div class="pattern-item">
+            <h3>CQRS</h3>
+            <p>Command Query Responsibility Segregation - separate read and write models for scalability.</p>
+          </div>
+
+          <div class="pattern-item">
+            <h3>Event Sourcing</h3>
+            <p>Store state changes as a sequence of events, enabling time travel and audit trails.</p>
+          </div>
+
+          <div class="pattern-item">
+            <h3>Circuit Breaker</h3>
+            <p>Prevent cascading failures by failing fast when downstream services are unavailable.</p>
+          </div>
+
+          <div class="pattern-item">
+            <h3>Bulkhead</h3>
+            <p>Isolate resources to prevent a single failing component from exhausting all resources.</p>
+          </div>
+
+          <div class="pattern-item">
+            <h3>Strangler Fig</h3>
+            <p>Incrementally migrate monoliths to microservices by gradually replacing functionality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Building a Distributed System?</h2>
+        <p>We'll help you navigate the complexity and build a resilient, scalable architecture.</p>
+        <a href="/about" class="cta-button">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .service-page {
+    background: var(--color-depth);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+  }
+
+  .content-section,
+  .principles-section,
+  .patterns-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .content-section h2,
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card ul {
+    list-style: none;
+  }
+
+  .service-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .principle-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .principle-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-strike);
+    margin-bottom: var(--space-sm);
+  }
+
+  .principle-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .patterns-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .pattern-item {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-md);
+  }
+
+  .pattern-item h3 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-mono);
+  }
+
+  .pattern-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+  }
+
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: var(--color-surface);
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+    color: var(--color-depth);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

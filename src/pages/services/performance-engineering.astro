@@ -1,0 +1,532 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Performance Engineering"
+  description="Speed, efficiency, and reliability baked into every layer. Sub-100ms API responses, optimized database queries, and front-end performance tuning for measurable business impact."
+>
+  <main class="service-page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="title">Performance Engineering</h1>
+        <p class="subtitle">
+          Speed, efficiency, and reliability baked into every layer.
+          Sub-100ms API responses, optimized database queries, and front-end performance tuning for measurable business impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+      <div class="container">
+        <h2>What We Optimize</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Front-End Performance</h3>
+            <ul>
+              <li>Code splitting and lazy loading</li>
+              <li>Image optimization (WebP, AVIF, responsive)</li>
+              <li>Critical CSS and font loading strategies</li>
+              <li>JavaScript bundle size reduction</li>
+              <li>Resource hints (preload, prefetch, preconnect)</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>API Performance</h3>
+            <ul>
+              <li>Response time optimization (&lt;100ms target)</li>
+              <li>Database query optimization and indexing</li>
+              <li>N+1 query elimination</li>
+              <li>Caching strategies (Redis, CDN, in-memory)</li>
+              <li>Rate limiting and throttling</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Database Optimization</h3>
+            <ul>
+              <li>Query execution plan analysis</li>
+              <li>Index design and maintenance</li>
+              <li>Connection pooling and management</li>
+              <li>Read replicas and sharding strategies</li>
+              <li>Query caching and materialized views</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Caching Architecture</h3>
+            <ul>
+              <li>Multi-layer caching (CDN, app, database)</li>
+              <li>Cache invalidation strategies</li>
+              <li>Redis, Memcached, Varnish</li>
+              <li>Edge caching and regional optimization</li>
+              <li>Cache warming and pre-generation</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Asset Optimization</h3>
+            <ul>
+              <li>Image compression and format selection</li>
+              <li>Video encoding and adaptive streaming</li>
+              <li>Font subsetting and variable fonts</li>
+              <li>SVG optimization and inline strategies</li>
+              <li>CSS/JS minification and tree-shaking</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Performance Monitoring</h3>
+            <ul>
+              <li>Real User Monitoring (RUM)</li>
+              <li>Synthetic monitoring and alerts</li>
+              <li>Core Web Vitals tracking</li>
+              <li>Performance budgets and CI checks</li>
+              <li>A/B testing for performance changes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="metrics-section">
+      <div class="container">
+        <h2 class="section-title">Performance Metrics We Target</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Time to First Byte</span>
+              <span class="metric-value">&lt;200ms</span>
+            </div>
+            <p>Server response time—how quickly your server starts sending data.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">First Contentful Paint</span>
+              <span class="metric-value">&lt;1s</span>
+            </div>
+            <p>When the first text or image appears on screen.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Largest Contentful Paint</span>
+              <span class="metric-value">&lt;2.5s</span>
+            </div>
+            <p>When the largest content element becomes visible (Core Web Vital).</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Time to Interactive</span>
+              <span class="metric-value">&lt;3s</span>
+            </div>
+            <p>When the page becomes fully interactive and responsive to input.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Cumulative Layout Shift</span>
+              <span class="metric-value">&lt;0.1</span>
+            </div>
+            <p>Visual stability score—lower is better (Core Web Vital).</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Total Blocking Time</span>
+              <span class="metric-value">&lt;200ms</span>
+            </div>
+            <p>Sum of all time periods where the main thread was blocked.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Speed Index</span>
+              <span class="metric-value">&lt;3s</span>
+            </div>
+            <p>How quickly content is visually displayed during page load.</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">API Response Time (p95)</span>
+              <span class="metric-value">&lt;100ms</span>
+            </div>
+            <p>95th percentile response time for backend API calls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach-section">
+      <div class="container">
+        <h2 class="section-title">Our Performance Engineering Process</h2>
+        <div class="process-steps">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Baseline Measurement</h3>
+            <p>We start by measuring current performance across real devices, networks, and geographies. Lighthouse, WebPageTest, and custom instrumentation establish the baseline.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Bottleneck Identification</h3>
+            <p>Chrome DevTools, profiling, and distributed tracing reveal where time is actually spent. Database queries? Network latency? JavaScript execution? We find the actual bottlenecks.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Optimization Strategy</h3>
+            <p>Not all optimizations have equal impact. We prioritize changes by their performance-to-effort ratio, focusing on the 20% of changes that deliver 80% of improvements.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Implementation</h3>
+            <p>Code-level changes, infrastructure tuning, caching strategies, and database optimization. Every change is tested and measured before deployment.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">05</div>
+            <h3>Continuous Monitoring</h3>
+            <p>Performance budgets in CI/CD pipelines prevent regression. Real user monitoring alerts us when metrics degrade in production.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">06</div>
+            <h3>Iterative Improvement</h3>
+            <p>Performance engineering is never "done." As traffic patterns change and new features ship, we continuously measure and optimize.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="tools-section">
+      <div class="container">
+        <h2 class="section-title">Tools We Use</h2>
+        <div class="tools-grid">
+          <div class="tool-category">
+            <h3>Profiling & Analysis</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">Chrome DevTools</span>
+              <span class="tool-tag">WebPageTest</span>
+              <span class="tool-tag">Lighthouse CI</span>
+              <span class="tool-tag">Bundle Analyzer</span>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <h3>Monitoring</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">Datadog</span>
+              <span class="tool-tag">New Relic</span>
+              <span class="tool-tag">Sentry</span>
+              <span class="tool-tag">LogRocket</span>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <h3>Database</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">EXPLAIN plans</span>
+              <span class="tool-tag">pgBadger</span>
+              <span class="tool-tag">Percona Tools</span>
+              <span class="tool-tag">Query analyzers</span>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <h3>Caching</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">Redis</span>
+              <span class="tool-tag">Cloudflare</span>
+              <span class="tool-tag">Varnish</span>
+              <span class="tool-tag">CDN providers</span>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <h3>Load Testing</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">k6</span>
+              <span class="tool-tag">Artillery</span>
+              <span class="tool-tag">JMeter</span>
+              <span class="tool-tag">Gatling</span>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <h3>Image Optimization</h3>
+            <div class="tool-tags">
+              <span class="tool-tag">Sharp</span>
+              <span class="tool-tag">ImageMagick</span>
+              <span class="tool-tag">Squoosh</span>
+              <span class="tool-tag">SVGO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Make Your Application Faster?</h2>
+        <p>Let's audit your current performance and build a roadmap for measurable improvements.</p>
+        <a href="/about" class="cta-button">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .service-page {
+    background: var(--color-depth);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+  }
+
+  .content-section,
+  .metrics-section,
+  .approach-section,
+  .tools-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .content-section h2,
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card ul {
+    list-style: none;
+  }
+
+  .service-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .metric-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-md);
+  }
+
+  .metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xs);
+  }
+
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .metric-value {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-strike);
+  }
+
+  .metric-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .step-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-strike);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .step-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .step-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .tool-category {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .tool-category h3 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tool-tag {
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--color-strike);
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+  }
+
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: var(--color-surface);
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+    color: var(--color-depth);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,3 +1,20 @@
+---
+import Logo from '../components/Logo.astro';
+import MaantisLogoHeader from '../components/react/MaantisLogoHeader';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'MAANTIS — Modular Adaptive Architecture',
+	description = 'High-performance web development consultancy. We build precision-engineered websites, web applications, and cloud infrastructure designed for speed, scale, and reliability.'
+} = Astro.props;
+
+const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title : `${title} | MAANTIS`;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +22,335 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+		<title>{fullTitle}</title>
 	</head>
 	<body>
+		<nav class="nav">
+			<div class="nav-container">
+				<a href="/" class="logo-link">
+					<MaantisLogoHeader autoRotate={true} client:load />
+				</a>
+				<div class="nav-links">
+					<a href="/">Home</a>
+					<a href="/services">Services</a>
+					<a href="/blog">Insights</a>
+					<a href="/about">About</a>
+				</div>
+			</div>
+		</nav>
+
 		<slot />
+
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-brand">
+						<div class="logo-footer">
+							<span class="logo-mark">M</span>
+							<span class="logo-text">MAANTIS</span>
+						</div>
+						<p class="footer-tagline">Precision. Adaptation. Intelligence.</p>
+					</div>
+					<div class="footer-links">
+						<div class="footer-column">
+							<h4>Navigate</h4>
+							<a href="/">Home</a>
+							<a href="/services">Services</a>
+							<a href="/blog">Insights</a>
+							<a href="/about">About</a>
+						</div>
+						<div class="footer-column">
+							<h4>Connect</h4>
+							<a href="mailto:contact@maantis.com">Contact</a>
+							<a href="https://github.com/maantis" target="_blank" rel="noopener">GitHub</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; {new Date().getFullYear()} MAANTIS. Engineered with clarity.</p>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	/* ==================== DESIGN TOKENS ==================== */
+	:root {
+		/* Colors - Inspired by mantis shrimp vision and ocean depths */
+		--color-depth: #0a1628;
+		--color-depth-light: #0d1b2a;
+		--color-ocean: #1b263b;
+		--color-ocean-light: #415a77;
+
+		--color-strike: #00d9ff;
+		--color-strike-dim: #00b4d8;
+		--color-accent: #90e0ef;
+
+		--color-surface: #0f1419;
+		--color-surface-elevated: #1a1f26;
+		--color-border: #2d3748;
+
+		--color-text-primary: #e0e1dd;
+		--color-text-secondary: #778da9;
+		--color-text-dim: #415a77;
+
+		/* Typography */
+		--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		--font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+		/* Spacing */
+		--space-xs: 0.5rem;
+		--space-sm: 1rem;
+		--space-md: 1.5rem;
+		--space-lg: 2rem;
+		--space-xl: 3rem;
+		--space-2xl: 4rem;
+
+		/* Layout */
+		--max-width: 1200px;
+		--nav-height: 70px;
+	}
+
+	/* ==================== RESET & BASE ==================== */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
 		margin: 0;
-		width: 100%;
+		padding: 0;
+	}
+
+	html {
+		font-family: var(--font-body);
+		background: var(--color-depth);
+		color: var(--color-text-primary);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* ==================== NAVIGATION ==================== */
+	.nav {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: rgba(10, 22, 40, 0.7);
+		backdrop-filter: blur(20px) saturate(180%);
+		-webkit-backdrop-filter: blur(20px) saturate(180%);
+		border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+		height: var(--nav-height);
+	}
+
+	.nav-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
 		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo-link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		transition: all 0.2s;
+	}
+
+	.logo-link:hover {
+		opacity: 0.9;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: var(--space-lg);
+	}
+
+	.nav-links a {
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.95rem;
+		letter-spacing: 0.01em;
+		transition: color 0.2s;
+		position: relative;
+	}
+
+	.nav-links a:hover {
+		color: var(--color-strike);
+	}
+
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-strike);
+		transition: width 0.2s;
+	}
+
+	.nav-links a:hover::after {
+		width: 100%;
+	}
+
+	/* ==================== FOOTER ==================== */
+	.footer {
+		margin-top: auto;
+		background: var(--color-surface);
+		border-top: 1px solid var(--color-border);
+		padding: var(--space-2xl) 0 var(--space-md);
+	}
+
+	.footer-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-xl);
+		margin-bottom: var(--space-xl);
+	}
+
+	.footer-brand .logo-footer {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: var(--space-sm);
+		font-weight: 700;
+		font-size: 1.25rem;
+		color: var(--color-text-primary);
+	}
+
+	.footer-brand .logo-footer .logo-mark {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+		color: var(--color-depth);
+		font-weight: 700;
+		font-size: 1.25rem;
+		border-radius: 6px;
+		font-family: var(--font-mono);
+	}
+
+	.footer-tagline {
+		color: var(--color-text-secondary);
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: var(--space-xl);
+		justify-content: flex-end;
+	}
+
+	.footer-column {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.footer-column h4 {
+		color: var(--color-text-primary);
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: var(--space-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-column a {
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		font-size: 0.875rem;
+		transition: color 0.2s;
+	}
+
+	.footer-column a:hover {
+		color: var(--color-strike);
+	}
+
+	.footer-bottom {
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--color-border);
+		text-align: center;
+	}
+
+	.footer-bottom p {
+		color: var(--color-text-dim);
+		font-size: 0.875rem;
+	}
+
+	/* ==================== RESPONSIVE ==================== */
+	@media (max-width: 768px) {
+		.nav-links {
+			gap: var(--space-md);
+		}
+
+		.nav-links a {
+			font-size: 0.875rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+		}
+
+		.footer-links {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.nav-container {
+			padding: 0 var(--space-sm);
+		}
+
+		.nav-links {
+			gap: var(--space-sm);
+		}
+
+		.nav-links a {
+			font-size: 0.8rem;
+		}
+
+		.footer-container {
+			padding: 0 var(--space-sm);
+		}
+
+		.footer-column h4 {
+			font-size: 0.8rem;
+		}
+
+		.footer-column a {
+			font-size: 0.8rem;
+		}
+
+		.footer-bottom p {
+			font-size: 0.8rem;
+		}
 	}
 </style>

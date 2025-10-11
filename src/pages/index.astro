@@ -1,11 +1,849 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+import AnimatedStats from '../components/AnimatedStats.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const performanceStats = [
+  { value: '100', label: 'Lighthouse Score Target', suffix: '/100' },
+  { value: '0.8', label: 'Page Load Time', suffix: 's' },
+  { value: '99', label: 'Uptime SLA', suffix: '.99%' },
+  { value: '50', label: 'API Response Time', suffix: 'ms' }
+];
 ---
 
 <Layout>
-	<Welcome />
+	<main class="hero">
+		<div class="hero-container">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					<span class="hero-title-main">MAANTIS</span>
+					<span class="hero-title-sub">Modular Adaptive Architecture for Networked Technology and Intelligent Systems</span>
+				</h1>
+
+				<p class="hero-description">
+					High-performance web development that delivers results. We build custom websites, web applications, and cloud infrastructure optimized for conversion, speed, and scale. From startups to enterprise—we engineer systems that work.
+				</p>
+
+				<div class="hero-cta">
+					<a href="/services" class="cta-primary">Our Services</a>
+					<a href="/about" class="cta-secondary">Our Approach</a>
+				</div>
+			</div>
+
+			<div class="hero-visual">
+				<!-- Lottie Animation Placeholder - Add your own animation here:
+				<div class="hero-animation-layer">
+					<dotlottie-player
+						src="/animations/ocean-waves.json"
+						background="transparent"
+						speed="0.5"
+						loop
+						autoplay
+						style="width: 100%; height: 100%; opacity: 0.25;"
+					></dotlottie-player>
+				</div>
+				-->
+				<div class="grid-background"></div>
+				<div class="logo-showcase">
+					<Logo size="large" interactive={true} />
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<section class="manifesto">
+		<div class="manifesto-container">
+			<div class="manifesto-grid">
+				<div class="manifesto-card">
+					<div class="card-icon">◈</div>
+					<h3>Engineered Clarity</h3>
+					<p>We distill complex systems into structured, comprehensible architectures. Every decision is deliberate. Every component has purpose.</p>
+				</div>
+
+				<div class="manifesto-card">
+					<div class="card-icon">⬡</div>
+					<h3>Adaptive Intelligence</h3>
+					<p>Systems that learn from their environment and evolve with precision. We build frameworks that outlast trends and adapt to pressure.</p>
+				</div>
+
+				<div class="manifesto-card">
+					<div class="card-icon">⬢</div>
+					<h3>Built to Last</h3>
+					<p>We engineer systems with resilience, redundancy, and long-term maintainability as core principles. Every architecture is designed to perform reliably under real-world conditions.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="philosophy">
+		<div class="philosophy-container">
+			<h2 class="section-title">Our Philosophy</h2>
+			<div class="philosophy-content">
+				<blockquote class="philosophy-quote">
+					<p>We engineer systems to endure—</p>
+					<p>built with precision, discipline, and a commitment to long-term reliability.</p>
+					<p>Every website, every application, every line of code is optimized for performance and resilience.</p>
+					<p>We don't chase trends. We build solutions that outlast them.</p>
+				</blockquote>
+				<div class="philosophy-principles">
+					<div class="principle">
+						<span class="principle-label">01</span>
+						<span class="principle-text">Precision</span>
+					</div>
+					<div class="principle">
+						<span class="principle-label">02</span>
+						<span class="principle-text">Adaptation</span>
+					</div>
+					<div class="principle">
+						<span class="principle-label">03</span>
+						<span class="principle-text">Intelligence</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="capabilities">
+		<div class="capabilities-container">
+			<h2 class="section-title">What We Deliver</h2>
+			<p class="capabilities-intro">
+				Results-driven development focused on business outcomes: faster load times, higher conversion rates, reduced infrastructure costs, and systems that scale with your growth.
+			</p>
+			<div class="capabilities-grid">
+				<a href="/services/website-development" class="capability">
+					<h3>Custom Websites & Web Applications</h3>
+					<p>Marketing sites that convert. E-commerce platforms that scale. SaaS applications that perform. Built with modern frameworks (React, Next.js, Astro) and optimized for Core Web Vitals, SEO, and mobile-first experiences.</p>
+					<span class="capability-link">Learn more →</span>
+				</a>
+				<a href="/services/cloud-infrastructure" class="capability">
+					<h3>Cloud Infrastructure & DevOps</h3>
+					<p>AWS and cloud architectures that reduce costs and improve reliability. Infrastructure-as-code, automated deployments, monitoring, and disaster recovery. Built for 99.9%+ uptime.</p>
+					<span class="capability-link">Learn more →</span>
+				</a>
+				<a href="/services/distributed-systems" class="capability">
+					<h3>Scalable Backend Systems</h3>
+					<p>APIs that handle millions of requests. Microservices architectures. Real-time data processing. Database optimization. Built to perform under load and scale with traffic.</p>
+					<span class="capability-link">Learn more →</span>
+				</a>
+				<a href="/services/performance-engineering" class="capability">
+					<h3>Performance & Optimization</h3>
+					<p>Page load times under 1 second. API responses under 100ms. Lighthouse scores of 95+. We optimize every layer—from database queries to front-end rendering—for measurable business impact.</p>
+					<span class="capability-link">Learn more →</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Performance Metrics -->
+	<section class="metrics">
+		<div class="metrics-container">
+			<h2 class="section-title">Performance Standards</h2>
+			<p class="metrics-intro">
+				These aren't aspirational targets. These are the benchmarks we hit on production systems.
+			</p>
+			<AnimatedStats stats={performanceStats} />
+		</div>
+	</section>
+
+	<!-- Tech Stack -->
+	<section class="tech-stack">
+		<div class="tech-stack-container">
+			<h2 class="section-title">Technologies We Build With</h2>
+			<p class="tech-intro">
+				We choose tools based on performance, maintainability, and long-term viability—not trends.
+			</p>
+			<div class="tech-grid">
+				<div class="tech-category">
+					<h3>Frontend</h3>
+					<div class="tech-tags">
+						<span class="tech-tag">React</span>
+						<span class="tech-tag">Next.js</span>
+						<span class="tech-tag">Astro</span>
+						<span class="tech-tag">TypeScript</span>
+						<span class="tech-tag">Tailwind</span>
+						<span class="tech-tag">Svelte</span>
+					</div>
+				</div>
+				<div class="tech-category">
+					<h3>Backend</h3>
+					<div class="tech-tags">
+						<span class="tech-tag">Node.js</span>
+						<span class="tech-tag">Python</span>
+						<span class="tech-tag">FastAPI</span>
+						<span class="tech-tag">tRPC</span>
+						<span class="tech-tag">GraphQL</span>
+						<span class="tech-tag">PostgreSQL</span>
+					</div>
+				</div>
+				<div class="tech-category">
+					<h3>Infrastructure</h3>
+					<div class="tech-tags">
+						<span class="tech-tag">AWS</span>
+						<span class="tech-tag">Vercel</span>
+						<span class="tech-tag">Docker</span>
+						<span class="tech-tag">Kubernetes</span>
+						<span class="tech-tag">Terraform</span>
+						<span class="tech-tag">Cloudflare</span>
+					</div>
+				</div>
+				<div class="tech-category">
+					<h3>Performance</h3>
+					<div class="tech-tags">
+						<span class="tech-tag">Redis</span>
+						<span class="tech-tag">Kafka</span>
+						<span class="tech-tag">Lighthouse</span>
+						<span class="tech-tag">WebPageTest</span>
+						<span class="tech-tag">Datadog</span>
+						<span class="tech-tag">Prometheus</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="cta">
+		<div class="cta-container">
+			<h2 class="cta-title">Ready to Build Something That Performs?</h2>
+			<p class="cta-description">
+				Whether you need a high-converting website, scalable infrastructure, or performance optimization—we've built it before. Let's discuss your project.
+			</p>
+			<div class="cta-buttons">
+				<a href="/services" class="cta-button primary">View Our Services</a>
+				<a href="/about" class="cta-button secondary">Meet the Team</a>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	/* ==================== HERO SECTION ==================== */
+	.hero {
+		position: relative;
+		min-height: calc(100vh - var(--nav-height));
+		display: flex;
+		align-items: center;
+		background:
+			linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(13, 27, 42, 0.9) 100%),
+			url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center/cover no-repeat;
+		overflow: hidden;
+	}
+
+	.hero-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: var(--space-2xl) var(--space-md);
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-2xl);
+		align-items: center;
+	}
+
+	.hero-content {
+		z-index: 2;
+	}
+
+	.hero-title {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		margin-bottom: var(--space-lg);
+	}
+
+	.hero-title-main {
+		font-size: 4rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		line-height: 1;
+	}
+
+	.hero-title-sub {
+		font-size: 1rem;
+		color: var(--color-text-secondary);
+		font-weight: 500;
+		line-height: 1.4;
+		max-width: 500px;
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--space-xl);
+		max-width: 540px;
+	}
+
+	.hero-cta {
+		display: flex;
+		gap: var(--space-md);
+	}
+
+	.cta-primary,
+	.cta-secondary {
+		padding: 0.875rem 1.75rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s;
+		font-size: 1rem;
+		display: inline-block;
+	}
+
+	.cta-primary {
+		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+		color: var(--color-depth);
+	}
+
+	.cta-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+	}
+
+	.cta-secondary {
+		border: 1px solid rgba(0, 217, 255, 0.2);
+		color: var(--color-text-primary);
+		background: rgba(26, 31, 38, 0.5);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+	}
+
+	.cta-secondary:hover {
+		border-color: var(--color-strike);
+		color: var(--color-strike);
+		background: rgba(26, 31, 38, 0.7);
+	}
+
+	/* Hero Visual */
+	.hero-visual {
+		position: relative;
+		height: 500px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero-animation-layer {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.grid-background {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(var(--color-border) 1px, transparent 1px),
+			linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+		background-size: 50px 50px;
+		opacity: 0.3;
+		mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.logo-showcase {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* ==================== MANIFESTO SECTION ==================== */
+	.manifesto {
+		padding: var(--space-2xl) 0;
+		background: var(--color-surface);
+	}
+
+	.manifesto-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.manifesto-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-lg);
+	}
+
+	.manifesto-card {
+		padding: var(--space-lg);
+		background: rgba(26, 31, 38, 0.6);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+		border: 1px solid rgba(0, 217, 255, 0.1);
+		border-radius: 12px;
+		transition: all 0.3s;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.manifesto-card:hover {
+		border-color: rgba(0, 217, 255, 0.4);
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 217, 255, 0.15);
+		background: rgba(26, 31, 38, 0.8);
+	}
+
+	.card-icon {
+		font-size: 2.5rem;
+		color: var(--color-strike);
+		margin-bottom: var(--space-sm);
+	}
+
+	.card-animation {
+		margin-bottom: var(--space-sm);
+		display: flex;
+		justify-content: center;
+	}
+
+	.manifesto-card h3 {
+		font-size: 1.25rem;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-sm);
+		font-weight: 600;
+	}
+
+	.manifesto-card p {
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	/* ==================== PHILOSOPHY SECTION ==================== */
+	.philosophy {
+		position: relative;
+		padding: var(--space-2xl) 0;
+		background: var(--color-depth-light);
+		overflow: hidden;
+	}
+
+	.philosophy-ambient {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+
+	.philosophy-container {
+		position: relative;
+		z-index: 1;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		text-align: center;
+		margin-bottom: var(--space-xl);
+		color: var(--color-text-primary);
+		font-weight: 700;
+	}
+
+	.philosophy-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: var(--space-2xl);
+		align-items: center;
+	}
+
+	.philosophy-quote {
+		border-left: 4px solid var(--color-strike);
+		padding: var(--space-lg);
+		background: rgba(15, 20, 25, 0.5);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+		border-radius: 12px;
+		font-size: 1.25rem;
+		line-height: 1.8;
+		color: var(--color-text-secondary);
+		font-style: italic;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.philosophy-quote p {
+		margin-bottom: var(--space-sm);
+	}
+
+	.philosophy-principles {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.principle {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		padding: var(--space-md);
+		background: rgba(15, 20, 25, 0.6);
+		backdrop-filter: blur(8px) saturate(150%);
+		-webkit-backdrop-filter: blur(8px) saturate(150%);
+		border: 1px solid rgba(0, 217, 255, 0.15);
+		border-radius: 8px;
+		transition: all 0.3s;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.principle:hover {
+		border-color: rgba(0, 217, 255, 0.3);
+		transform: translateX(4px);
+		box-shadow: 0 4px 16px rgba(0, 217, 255, 0.1);
+	}
+
+	.principle-label {
+		font-family: var(--font-mono);
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-strike);
+	}
+
+	.principle-text {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	/* ==================== CAPABILITIES SECTION ==================== */
+	.capabilities {
+		padding: var(--space-2xl) 0;
+		background: var(--color-surface);
+	}
+
+	.capabilities-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.capabilities-intro {
+		text-align: center;
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+		max-width: 800px;
+		margin: 0 auto var(--space-xl);
+		line-height: 1.7;
+	}
+
+	.capabilities-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-lg);
+	}
+
+	.capability {
+		padding: var(--space-lg);
+		background: rgba(13, 27, 42, 0.6);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+		border: 1px solid rgba(0, 217, 255, 0.15);
+		border-radius: 12px;
+		text-decoration: none;
+		display: block;
+		transition: all 0.3s;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.capability:hover {
+		border-color: rgba(0, 217, 255, 0.4);
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 217, 255, 0.2);
+		background: rgba(13, 27, 42, 0.8);
+	}
+
+	.capability h3 {
+		font-size: 1.25rem;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-sm);
+		font-weight: 600;
+	}
+
+	.capability p {
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		font-size: 0.95rem;
+		margin-bottom: var(--space-sm);
+	}
+
+	.capability-link {
+		color: var(--color-strike);
+		font-size: 0.875rem;
+		font-weight: 600;
+		display: inline-block;
+		transition: transform 0.2s;
+	}
+
+	.capability:hover .capability-link {
+		transform: translateX(4px);
+	}
+
+	/* ==================== METRICS SECTION ==================== */
+	.metrics {
+		padding: var(--space-2xl) 0;
+		background: var(--color-depth-light);
+	}
+
+	.metrics-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.metrics-header {
+		text-align: center;
+	}
+
+	.metrics-animation {
+		display: flex;
+		justify-content: center;
+		margin-top: var(--space-md);
+	}
+
+	.metrics-intro {
+		text-align: center;
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+		max-width: 700px;
+		margin: 0 auto var(--space-xl);
+		line-height: 1.7;
+		font-style: italic;
+	}
+
+	/* ==================== TECH STACK SECTION ==================== */
+	.tech-stack {
+		padding: var(--space-2xl) 0;
+		background: var(--color-surface);
+	}
+
+	.tech-stack-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.tech-intro {
+		text-align: center;
+		font-size: 1.0625rem;
+		color: var(--color-text-secondary);
+		max-width: 700px;
+		margin: 0 auto var(--space-xl);
+		line-height: 1.7;
+	}
+
+	.tech-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-lg);
+	}
+
+	.tech-category {
+		background: rgba(26, 31, 38, 0.6);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+		border: 1px solid rgba(0, 217, 255, 0.1);
+		border-radius: 12px;
+		padding: var(--space-lg);
+		transition: all 0.3s;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.tech-category:hover {
+		border-color: rgba(0, 217, 255, 0.3);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.tech-category h3 {
+		font-size: 1.125rem;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-md);
+		font-weight: 600;
+	}
+
+	.tech-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+	}
+
+	.tech-tag {
+		background: rgba(0, 217, 255, 0.1);
+		color: var(--color-strike);
+		padding: 0.375rem 0.75rem;
+		border-radius: 4px;
+		font-size: 0.875rem;
+		font-family: var(--font-mono);
+		border: 1px solid rgba(0, 217, 255, 0.2);
+		transition: all 0.2s;
+	}
+
+	.tech-tag:hover {
+		background: rgba(0, 217, 255, 0.2);
+		border-color: var(--color-strike);
+	}
+
+	/* ==================== CTA SECTION ==================== */
+	.cta {
+		padding: var(--space-2xl) 0;
+		background: linear-gradient(180deg, var(--color-depth-light) 0%, var(--color-depth) 100%);
+		text-align: center;
+	}
+
+	.cta-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 var(--space-md);
+	}
+
+	.cta-title {
+		font-size: 2.5rem;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-md);
+		font-weight: 700;
+	}
+
+	.cta-description {
+		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		margin-bottom: var(--space-xl);
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--space-md);
+		justify-content: center;
+	}
+
+	.cta-button {
+		padding: 1rem 2rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s;
+		font-size: 1.0625rem;
+		display: inline-block;
+	}
+
+	.cta-button.primary {
+		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+		color: var(--color-depth);
+	}
+
+	.cta-button.primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+	}
+
+	.cta-button.secondary {
+		border: 1px solid rgba(0, 217, 255, 0.2);
+		color: var(--color-text-primary);
+		background: rgba(26, 31, 38, 0.5);
+		backdrop-filter: blur(10px) saturate(150%);
+		-webkit-backdrop-filter: blur(10px) saturate(150%);
+	}
+
+	.cta-button.secondary:hover {
+		border-color: var(--color-strike);
+		color: var(--color-strike);
+		background: rgba(26, 31, 38, 0.7);
+	}
+
+	/* ==================== RESPONSIVE ==================== */
+	@media (max-width: 968px) {
+		.hero-container {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-visual {
+			display: none;
+		}
+
+		.hero-title-main {
+			font-size: 3rem;
+		}
+
+		.manifesto-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.philosophy-content {
+			grid-template-columns: 1fr;
+		}
+
+		.capabilities-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.tech-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-title-main {
+			font-size: 2.5rem;
+		}
+
+		.hero-title-sub {
+			font-size: 0.875rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.hero-cta {
+			flex-direction: column;
+		}
+
+		.cta-primary,
+		.cta-secondary {
+			text-align: center;
+			width: 100%;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.manifesto-card,
+		.capability,
+		.tech-category {
+			padding: var(--space-md);
+		}
+
+		.cta-title {
+			font-size: 2rem;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+		}
+
+		.cta-button {
+			width: 100%;
+			text-align: center;
+		}
+
+		.philosophy-quote {
+			font-size: 1.125rem;
+			padding: var(--space-md);
+		}
+
+		.principle {
+			padding: var(--space-sm);
+		}
+
+		.principle-label {
+			font-size: 1.25rem;
+		}
+
+		.principle-text {
+			font-size: 1rem;
+		}
+	}
+</style>

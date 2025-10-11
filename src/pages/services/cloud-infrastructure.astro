@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Cloud Architecture & Infrastructure"
+  description="Production-grade cloud infrastructure designed for reliability, cost-efficiency, and scale. Built on AWS, Azure, and GCP with infrastructure-as-code."
+>
+  <main class="service-page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="title">Cloud Architecture & Infrastructure</h1>
+        <p class="subtitle">
+          Production-ready systems designed for reliability, cost-efficiency, and scale.
+          Multi-region deployments, disaster recovery, and infrastructure-as-code built to enterprise standards.
+        </p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+      <div class="container">
+        <h2>What We Build</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>AWS Cloud Architecture</h3>
+            <ul>
+              <li>EC2, Lambda, ECS/EKS container orchestration</li>
+              <li>S3, RDS, DynamoDB data storage</li>
+              <li>CloudFront CDN and Route 53 DNS</li>
+              <li>VPC networking and security groups</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Infrastructure as Code</h3>
+            <ul>
+              <li>Terraform for multi-cloud provisioning</li>
+              <li>AWS CloudFormation templates</li>
+              <li>Version-controlled infrastructure</li>
+              <li>Automated deployment pipelines</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Container Orchestration</h3>
+            <ul>
+              <li>Kubernetes cluster design and management</li>
+              <li>Docker containerization strategies</li>
+              <li>Service mesh implementation (Istio, Linkerd)</li>
+              <li>Auto-scaling and load balancing</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>CI/CD Pipelines</h3>
+            <ul>
+              <li>GitHub Actions, GitLab CI, Jenkins</li>
+              <li>Automated testing and deployment</li>
+              <li>Blue-green and canary deployments</li>
+              <li>Rollback strategies and monitoring</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Monitoring & Observability</h3>
+            <ul>
+              <li>CloudWatch, Datadog, Prometheus, Grafana</li>
+              <li>Log aggregation and analysis</li>
+              <li>Custom alerting and on-call rotations</li>
+              <li>Performance metrics and dashboards</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Disaster Recovery</h3>
+            <ul>
+              <li>Multi-region failover strategies</li>
+              <li>Automated backup and restore</li>
+              <li>RTO/RPO planning and testing</li>
+              <li>Business continuity documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach-section">
+      <div class="container">
+        <h2 class="section-title">Our Approach</h2>
+        <div class="approach-grid">
+          <div class="approach-card">
+            <h3>Cost-Optimized</h3>
+            <p>We design for your actual usage patterns, not maximum capacity. Right-sized instances, spot pricing, reserved capacity, and auto-scaling reduce cloud spend by 30-60%.</p>
+          </div>
+
+          <div class="approach-card">
+            <h3>Security-First</h3>
+            <p>Principle of least privilege, encrypted at rest and in transit, regular security audits, and compliance with SOC 2, HIPAA, and GDPR standards.</p>
+          </div>
+
+          <div class="approach-card">
+            <h3>Observable</h3>
+            <p>You can't fix what you can't see. Comprehensive logging, distributed tracing, and real-time metrics give you visibility into every layer of your infrastructure.</p>
+          </div>
+
+          <div class="approach-card">
+            <h3>Maintainable</h3>
+            <p>Infrastructure as code means your entire stack is version-controlled, documented, and reproducible. No snowflake servers, no manual configuration drift.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Need Cloud Infrastructure That Scales?</h2>
+        <p>Let's discuss your requirements and design a cloud architecture that meets your performance, security, and budget needs.</p>
+        <a href="/about" class="cta-button">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .service-page {
+    background: var(--color-depth);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+  }
+
+  .content-section,
+  .approach-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .content-section h2,
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card ul {
+    list-style: none;
+  }
+
+  .service-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .approach-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .approach-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-strike);
+    margin-bottom: var(--space-sm);
+  }
+
+  .approach-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: var(--color-surface);
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+    color: var(--color-depth);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,723 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedStats from '../components/AnimatedStats.astro';
+
+const performanceStats = [
+  { value: '99', label: 'Uptime SLA', suffix: '.99%' },
+  { value: '100', label: 'Sub-100ms Page Load', suffix: 'ms' },
+  { value: '95', label: 'Performance Score', suffix: '+' },
+  { value: '10', label: 'Deployment Time', suffix: 'min' }
+];
+---
+
+<Layout
+  title="Services"
+  description="High-performance web applications. Cloud infrastructure. Distributed systems. Built for environments where downtime isn't an option."
+>
+  <main class="services-page">
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <h1 class="page-title">What We Build</h1>
+        <p class="hero-lead">
+          Performance-critical web applications. Production-grade infrastructure. Systems that scale.
+        </p>
+        <p class="hero-description">
+          We specialize in high-performance architectures for businesses that need reliability, speed, and intelligent automation—not just websites that look good.
+        </p>
+      </div>
+    </section>
+
+    <!-- Core Services -->
+    <section class="services-section">
+      <div class="section-container">
+        <h2 class="section-title">Core Capabilities</h2>
+
+        <div class="service-grid">
+          <!-- Website & Application Development - FEATURED -->
+          <a href="/services/website-development" class="service-card featured">
+            <div class="service-icon">⚡</div>
+            <h3 class="service-title">Website & Application Development</h3>
+            <p class="service-description">
+              High-performance websites and web applications built for speed, conversion, and scale. From marketing sites to complex SaaS platforms—engineered for production, optimized for results.
+            </p>
+            <ul class="service-features">
+              <li>Custom website design & development</li>
+              <li>E-commerce platforms (Shopify, custom)</li>
+              <li>SaaS application development</li>
+              <li>Progressive Web Apps (PWAs)</li>
+              <li>CMS integration (Headless, Obsidian, Notion)</li>
+              <li>Performance optimization (Core Web Vitals)</li>
+              <li>SEO & analytics implementation</li>
+              <li>Conversion optimization & A/B testing</li>
+            </ul>
+            <div class="service-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Astro</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+            <span class="learn-more">Learn more →</span>
+          </a>
+
+          <!-- Cloud Architecture -->
+          <a href="/services/cloud-infrastructure" class="service-card">
+            <div class="service-icon">☁</div>
+            <h3 class="service-title">Cloud Infrastructure</h3>
+            <p class="service-description">
+              Scalable, resilient infrastructure designed for production. We architect systems that handle load, recover from failure, and scale without manual intervention.
+            </p>
+            <ul class="service-features">
+              <li>AWS/Azure/GCP infrastructure design</li>
+              <li>Kubernetes & container orchestration</li>
+              <li>Serverless & edge computing</li>
+              <li>Infrastructure as Code (Terraform)</li>
+              <li>Multi-region disaster recovery</li>
+            </ul>
+            <div class="service-tech">
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <span class="learn-more">Learn more →</span>
+          </a>
+
+          <!-- Distributed Systems -->
+          <a href="/services/distributed-systems" class="service-card">
+            <div class="service-icon">⬢</div>
+            <h3 class="service-title">Distributed Systems</h3>
+            <p class="service-description">
+              Microservices, event-driven architectures, and real-time data pipelines. Built for resilience under pressure and designed to perform when it matters.
+            </p>
+            <ul class="service-features">
+              <li>Microservices architecture</li>
+              <li>Event-driven systems (Kafka, RabbitMQ)</li>
+              <li>Real-time data processing</li>
+              <li>Service mesh implementation</li>
+              <li>Distributed transactions & consistency</li>
+            </ul>
+            <div class="service-tech">
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">gRPC</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <span class="learn-more">Learn more →</span>
+          </a>
+
+          <!-- Performance Engineering -->
+          <a href="/services/performance-engineering" class="service-card">
+            <div class="service-icon">◈</div>
+            <h3 class="service-title">Performance Engineering</h3>
+            <p class="service-description">
+              Speed, efficiency, and reliability baked into every layer. Sub-100ms API responses, optimized database queries, and front-end performance tuning for measurable business impact.
+            </p>
+            <ul class="service-features">
+              <li>Front-end performance optimization</li>
+              <li>API & database performance tuning</li>
+              <li>Caching architecture design</li>
+              <li>Core Web Vitals optimization</li>
+              <li>Performance monitoring & budgets</li>
+            </ul>
+            <div class="service-tech">
+              <span class="tech-tag">Lighthouse</span>
+              <span class="tech-tag">WebPageTest</span>
+              <span class="tech-tag">Datadog</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+            <span class="learn-more">Learn more →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="metrics-section">
+      <div class="section-container">
+        <h2 class="section-title">Performance Standards</h2>
+        <p class="metrics-intro">
+          These aren't aspirational goals. These are the benchmarks we hit on production systems.
+        </p>
+        <AnimatedStats stats={performanceStats} />
+      </div>
+    </section>
+
+    <!-- Website Development Deep Dive -->
+    <section class="website-focus-section">
+      <div class="section-container">
+        <h2 class="section-title">Why Our Websites Perform Better</h2>
+        <p class="section-intro">
+          Most agencies build websites that look good in demos. We build websites that convert customers and handle real traffic.
+        </p>
+
+        <div class="approach-grid">
+          <div class="approach-item">
+            <div class="approach-number">01</div>
+            <h3>Performance-First Architecture</h3>
+            <p>
+              We optimize for Core Web Vitals from day one. Static generation, edge caching, image optimization, lazy loading—every millisecond matters because slow sites lose customers.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <div class="approach-number">02</div>
+            <h3>Conversion Engineering</h3>
+            <p>
+              Beautiful design is table stakes. We engineer for conversions—A/B testing infrastructure, analytics integration, form optimization, checkout flow analysis. Your site needs to sell, not just sit there.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <div class="approach-number">03</div>
+            <h3>Scalable by Default</h3>
+            <p>
+              Built on modern infrastructure that scales automatically. CDN distribution, serverless backends, database optimization. Your site handles traffic spikes without crashing or slowing down.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <div class="approach-number">04</div>
+            <h3>SEO & Discoverability</h3>
+            <p>
+              Technical SEO isn't optional. Structured data, semantic HTML, sitemap generation, meta optimization, performance tuning. We build sites that Google can crawl, index, and rank.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <div class="approach-number">05</div>
+            <h3>Maintainable Code</h3>
+            <p>
+              Clean, documented, version-controlled. Component-based architecture, TypeScript for safety, automated testing, CI/CD pipelines. You can hand this off to another team without tech debt nightmares.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <div class="approach-number">06</div>
+            <h3>Content Management</h3>
+            <p>
+              Edit content without touching code. Headless CMS integration (Sanity, Contentful), Markdown-based workflows, or custom admin panels. Your team can update the site without calling us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="stack-section">
+      <div class="section-container">
+        <h2 class="section-title">Technology Stack</h2>
+
+        <div class="stack-categories">
+          <div class="stack-category">
+            <h3>Frontend</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Next.js</span>
+              <span class="stack-tag">Astro</span>
+              <span class="stack-tag">TypeScript</span>
+              <span class="stack-tag">Tailwind</span>
+              <span class="stack-tag">GSAP</span>
+            </div>
+          </div>
+
+          <div class="stack-category">
+            <h3>Backend</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">tRPC</span>
+              <span class="stack-tag">GraphQL</span>
+              <span class="stack-tag">REST</span>
+            </div>
+          </div>
+
+          <div class="stack-category">
+            <h3>Databases</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">MongoDB</span>
+              <span class="stack-tag">Redis</span>
+              <span class="stack-tag">Supabase</span>
+              <span class="stack-tag">Prisma</span>
+              <span class="stack-tag">Drizzle</span>
+            </div>
+          </div>
+
+          <div class="stack-category">
+            <h3>Infrastructure</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">AWS</span>
+              <span class="stack-tag">Vercel</span>
+              <span class="stack-tag">Netlify</span>
+              <span class="stack-tag">Cloudflare</span>
+              <span class="stack-tag">Docker</span>
+              <span class="stack-tag">Terraform</span>
+            </div>
+          </div>
+
+          <div class="stack-category">
+            <h3>CMS & Content</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Sanity</span>
+              <span class="stack-tag">Contentful</span>
+              <span class="stack-tag">Obsidian</span>
+              <span class="stack-tag">Markdown</span>
+              <span class="stack-tag">MDX</span>
+              <span class="stack-tag">Notion</span>
+            </div>
+          </div>
+
+          <div class="stack-category">
+            <h3>E-commerce</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Shopify</span>
+              <span class="stack-tag">Stripe</span>
+              <span class="stack-tag">PayPal</span>
+              <span class="stack-tag">Commerce.js</span>
+              <span class="stack-tag">Snipcart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="industries-section">
+      <div class="section-container">
+        <h2 class="section-title">Industries We Serve</h2>
+        <div class="industries-grid">
+          <div class="industry-card">
+            <h3>SaaS & Tech</h3>
+            <p>Landing pages, product dashboards, customer portals, documentation sites</p>
+          </div>
+          <div class="industry-card">
+            <h3>E-commerce</h3>
+            <p>Online stores, product catalogs, checkout optimization, inventory management</p>
+          </div>
+          <div class="industry-card">
+            <h3>Professional Services</h3>
+            <p>Agency sites, consulting firms, law practices, accounting services</p>
+          </div>
+          <div class="industry-card">
+            <h3>Healthcare & Wellness</h3>
+            <p>Practice websites, booking systems, patient portals, wellness platforms</p>
+          </div>
+          <div class="industry-card">
+            <h3>Education</h3>
+            <p>Course platforms, learning management systems, university sites</p>
+          </div>
+          <div class="industry-card">
+            <h3>Startups</h3>
+            <p>MVP development, landing pages, fundraising sites, product launches</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="section-container">
+        <h2>Let's Build Your Next Project</h2>
+        <p class="cta-description">
+          Whether you need a high-converting marketing site, a complex web application, or scalable cloud infrastructure—we've built it before.
+        </p>
+        <div class="cta-buttons">
+          <a href="mailto:contact@maantis.com" class="cta-button primary">Start a Conversation</a>
+          <a href="/about" class="cta-button secondary">Meet the Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .services-page {
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
+    text-align: center;
+  }
+
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .page-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-lead {
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+
+  /* Sections */
+  .section-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .section-intro {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  /* Services Grid */
+  .services-section {
+    background: var(--color-surface);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    padding: var(--space-xl);
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    position: relative;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-strike);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.2);
+  }
+
+  .service-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--color-depth) 0%, var(--color-ocean) 100%);
+    border: 2px solid var(--color-strike);
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: var(--space-md);
+    color: var(--color-strike);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: transform 0.2s;
+  }
+
+  .service-card:hover .learn-more {
+    transform: translateX(4px);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-strike);
+  }
+
+  .service-title {
+    font-size: 1.75rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .service-description {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-features {
+    list-style: none;
+    margin-bottom: var(--space-md);
+    padding: 0;
+  }
+
+  .service-features li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+    font-weight: 700;
+  }
+
+  .service-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    padding: 0.375rem 0.75rem;
+    background: var(--color-ocean);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+  }
+
+  /* Metrics */
+  .metrics-section {
+    background: var(--color-depth-light);
+  }
+
+  .metrics-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    font-style: italic;
+  }
+
+  /* Website Focus Section */
+  .website-focus-section {
+    background: var(--color-surface);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .approach-item {
+    padding: var(--space-lg);
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .approach-number {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-strike);
+    margin-bottom: var(--space-sm);
+  }
+
+  .approach-item h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .approach-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Stack Section */
+  .stack-section {
+    background: var(--color-depth-light);
+  }
+
+  .stack-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .stack-category h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .stack-tag {
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    transition: all 0.2s;
+  }
+
+  .stack-tag:hover {
+    border-color: var(--color-strike);
+    color: var(--color-strike);
+  }
+
+  /* Industries Section */
+  .industries-section {
+    background: var(--color-surface);
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .industry-card {
+    padding: var(--space-lg);
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .industry-card:hover {
+    border-color: var(--color-strike);
+    transform: translateY(-2px);
+  }
+
+  .industry-card h3 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .industry-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    background: var(--color-depth-light);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 700;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 1rem;
+  }
+
+  .cta-button.primary {
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+    color: var(--color-depth);
+  }
+
+  .cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+  }
+
+  .cta-button.secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    background: transparent;
+  }
+
+  .cta-button.secondary:hover {
+    border-color: var(--color-strike);
+    color: var(--color-strike);
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .service-grid,
+    .approach-grid,
+    .industries-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card.featured {
+      grid-column: span 1;
+    }
+
+    .stack-categories {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .stack-categories {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Get all blog posts, sorted by date (newest first)
+const allPosts = await getCollection('blog', ({ data }) => {
+  // Filter out draft posts in production
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Format date helper
+function formatDate(date: Date): string {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout title="Insights">
+  <main class="container">
+    <div class="header">
+      <h1>Insights</h1>
+      <p class="subtitle">
+        Technical depth. Architectural clarity. Systems thinking.
+      </p>
+    </div>
+
+    <div class="posts-list">
+      {sortedPosts.map((post) => (
+        <article class="post-card">
+          <a href={`/blog/${post.slug}`} class="post-link">
+            <h2>{post.data.title}</h2>
+            <p class="post-meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {formatDate(post.data.pubDate)}
+              </time>
+              {post.data.author && <span> • {post.data.author}</span>}
+            </p>
+            <p class="post-description">{post.data.description}</p>
+            {post.data.tags.length > 0 && (
+              <div class="tags">
+                {post.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-md);
+    min-height: calc(100vh - var(--nav-height));
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .post-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    background: var(--color-surface-elevated);
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--color-strike);
+    transform: translateY(-2px);
+  }
+
+  .post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .post-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .post-card:hover h2 {
+    color: var(--color-strike);
+  }
+
+  .post-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-mono);
+  }
+
+  .post-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    background: var(--color-ocean);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--color-strike);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post-card h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,1242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Website Development"
+  description="Custom website development built for performance, SEO, and long-term success. Engineered to outperform WordPress on every metric that matters."
+>
+  <main class="service-page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="title">Website Development</h1>
+        <p class="subtitle">
+          High-performance websites engineered for speed, search visibility, and conversion.
+          Built from scratch to outperform WordPress on every metric that matters.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">100</span>
+            <span class="stat-label">Lighthouse Score Target</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">&lt;1s</span>
+            <span class="stat-label">First Contentful Paint</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">&lt;100ms</span>
+            <span class="stat-label">Time to Interactive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-content">
+          <h2>Why Performance Isn't Optional Anymore</h2>
+          <p class="lead">
+            Your website is evaluated every second—by users, by Google's algorithms, and increasingly, by AI systems that decide whether to recommend you.
+            In 2025, a slow website isn't just annoying. It's invisible.
+          </p>
+          <p>
+            We build custom websites that are engineered for the modern web: fast, SEO-optimized, and structured for both traditional search engines and AI answer engines.
+            Every line of code is written with performance, accessibility, and discoverability in mind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Evaluation Section -->
+    <section class="evaluation-section">
+      <div class="container">
+        <h2 class="section-title">How Your Website Is Actually Evaluated</h2>
+        <p class="section-intro">
+          Most businesses don't realize their website is being judged by three different systems—each with different priorities.
+        </p>
+
+        <div class="evaluation-grid">
+          <!-- Google Search -->
+          <div class="evaluation-card">
+            <div class="card-header">
+              <h3>Google Search Indexing</h3>
+              <span class="card-tag">Traditional SEO</span>
+            </div>
+            <p class="card-description">
+              Google's crawlers evaluate your site using 200+ ranking factors. The most critical ones:
+            </p>
+            <ul class="card-list">
+              <li><strong>Core Web Vitals:</strong> LCP (Largest Contentful Paint), FID (First Input Delay), CLS (Cumulative Layout Shift)</li>
+              <li><strong>Mobile-First Indexing:</strong> Your mobile experience is your ranking</li>
+              <li><strong>Structured Data:</strong> Schema markup that tells Google what your content means</li>
+              <li><strong>Page Experience Signals:</strong> HTTPS, safe browsing, no intrusive interstitials</li>
+              <li><strong>Content Quality:</strong> E-E-A-T (Experience, Expertise, Authoritativeness, Trust)</li>
+            </ul>
+            <div class="card-metric">
+              <span class="metric-label">WordPress avg. Lighthouse score:</span>
+              <span class="metric-value poor">45-65</span>
+            </div>
+            <div class="card-metric">
+              <span class="metric-label">Our custom builds:</span>
+              <span class="metric-value good">95-100</span>
+            </div>
+          </div>
+
+          <!-- AI Answer Engines -->
+          <div class="evaluation-card">
+            <div class="card-header">
+              <h3>AI Answer Engines</h3>
+              <span class="card-tag">AEO (Answer Engine Optimization)</span>
+            </div>
+            <p class="card-description">
+              ChatGPT, Perplexity, Google SGE, and Bing Copilot are rewriting search. They evaluate:
+            </p>
+            <ul class="card-list">
+              <li><strong>Semantic Structure:</strong> Clear headings, logical content hierarchy, contextual relationships</li>
+              <li><strong>Factual Accuracy:</strong> Verifiable claims, citations, authoritative sources</li>
+              <li><strong>Content Completeness:</strong> Comprehensive answers that address user intent</li>
+              <li><strong>Scannability:</strong> Bullet points, tables, clear sections AI can parse</li>
+              <li><strong>Freshness:</strong> Updated content with timestamps and revision dates</li>
+            </ul>
+            <div class="card-insight">
+              <strong>Key Difference:</strong> AI doesn't care about keyword density. It cares about meaning, structure, and trustworthiness.
+            </div>
+          </div>
+
+          <!-- Lighthouse Audits -->
+          <div class="evaluation-card">
+            <div class="card-header">
+              <h3>Lighthouse Audits</h3>
+              <span class="card-tag">Google's Quality Standard</span>
+            </div>
+            <p class="card-description">
+              Lighthouse is Google's automated website auditing tool. It measures four critical categories:
+            </p>
+            <ul class="card-list">
+              <li><strong>Performance (0-100):</strong> Speed metrics, resource optimization, render blocking</li>
+              <li><strong>Accessibility (0-100):</strong> ARIA labels, contrast ratios, keyboard navigation, screen readers</li>
+              <li><strong>Best Practices (0-100):</strong> Security, modern standards, browser compatibility</li>
+              <li><strong>SEO (0-100):</strong> Meta tags, crawlability, mobile-friendliness, structured data</li>
+            </ul>
+            <div class="card-metric">
+              <span class="metric-label">Perfect score:</span>
+              <span class="metric-value perfect">400/400</span>
+            </div>
+            <p class="card-note">
+              This isn't theoretical. Lighthouse scores directly impact your Google ranking, especially on mobile.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WordPress Comparison -->
+    <section class="comparison-section">
+      <div class="container">
+        <h2 class="section-title">Custom Build vs. WordPress: The Real Numbers</h2>
+        <p class="section-intro">
+          WordPress powers 43% of the web. But it wasn't designed for 2025's performance standards. Here's what you're giving up.
+        </p>
+
+        <div class="comparison-table">
+          <div class="comparison-header">
+            <div class="header-cell metric-col">Metric</div>
+            <div class="header-cell">WordPress (Typical)</div>
+            <div class="header-cell">MAANTIS Custom Build</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Page Load Time</strong>
+              <span class="metric-context">First Contentful Paint</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">2.5-4.5s</span>
+              <span class="context">Plugin overhead, bloated themes</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">&lt;0.8s</span>
+              <span class="context">Static generation, zero bloat</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Time to Interactive</strong>
+              <span class="metric-context">When users can actually click</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">3.8-6.2s</span>
+              <span class="context">jQuery, 15+ JS files</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">&lt;1.5s</span>
+              <span class="context">Minimal JS, optimized delivery</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Lighthouse Performance</strong>
+              <span class="metric-context">Google's speed score</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">45-65/100</span>
+              <span class="context">Database queries, plugin conflicts</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">95-100/100</span>
+              <span class="context">Pre-rendered, edge cached</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Total Page Size</strong>
+              <span class="metric-context">Data downloaded per visit</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">2.5-4MB</span>
+              <span class="context">Unused CSS/JS, unoptimized images</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">&lt;500KB</span>
+              <span class="context">Tree-shaken, compressed, WebP</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Security Vulnerabilities</strong>
+              <span class="metric-context">Attack surface</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">High Risk</span>
+              <span class="context">43% of hacked sites are WordPress</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">Minimal Surface</span>
+              <span class="context">No database, no PHP, no plugins</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Hosting Requirements</strong>
+              <span class="metric-context">Server complexity</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">Complex</span>
+              <span class="context">PHP, MySQL, caching layers</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">Simple CDN</span>
+              <span class="context">Static files, global edge network</span>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="cell metric-col">
+              <strong>Maintenance Overhead</strong>
+              <span class="metric-context">Time spent on updates</span>
+            </div>
+            <div class="cell wordpress">
+              <span class="value">Weekly</span>
+              <span class="context">Core, plugins, themes, security patches</span>
+            </div>
+            <div class="cell custom">
+              <span class="value">Quarterly</span>
+              <span class="context">Content updates, feature additions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-insight">
+          <h3>Why the difference?</h3>
+          <p>
+            WordPress was built in 2003 to power blogs. It's a PHP application that generates HTML on every page request by querying a database.
+            Even with caching, you're still running server-side code, loading dozens of plugins, and parsing thousands of lines of unused CSS/JS.
+          </p>
+          <p>
+            <strong>Our custom builds are static-first.</strong> We generate your entire site at build time, deploy it to a global CDN, and serve pre-rendered HTML in milliseconds.
+            No database queries. No PHP execution. No plugin conflicts. Just pure performance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Deep Dive -->
+    <section class="seo-section">
+      <div class="container">
+        <h2 class="section-title">SEO: Visibility Is Engineering</h2>
+        <p class="section-intro">
+          Search engine optimization isn't about tricks or hacks. It's about building websites the way search engines expect—technically sound, semantically structured, and blazing fast.
+        </p>
+
+        <div class="seo-grid">
+          <div class="seo-card">
+            <h3>Technical SEO</h3>
+            <p>The foundation that determines if you can even compete.</p>
+            <ul>
+              <li><strong>Crawlability:</strong> Clean URLs, XML sitemaps, robots.txt configuration</li>
+              <li><strong>Indexability:</strong> Canonical tags, proper redirects, no duplicate content</li>
+              <li><strong>Site Architecture:</strong> Logical hierarchy, internal linking, breadcrumbs</li>
+              <li><strong>Performance:</strong> Core Web Vitals, mobile-first, HTTPS</li>
+              <li><strong>Structured Data:</strong> JSON-LD schema for rich snippets</li>
+            </ul>
+          </div>
+
+          <div class="seo-card">
+            <h3>On-Page Optimization</h3>
+            <p>Every page is a landing page. We optimize accordingly.</p>
+            <ul>
+              <li><strong>Title Tags:</strong> Unique, descriptive, keyword-optimized (50-60 chars)</li>
+              <li><strong>Meta Descriptions:</strong> Compelling summaries that drive clicks (150-160 chars)</li>
+              <li><strong>Header Hierarchy:</strong> Single H1, logical H2-H6 structure</li>
+              <li><strong>Image Optimization:</strong> Alt text, responsive images, WebP format, lazy loading</li>
+              <li><strong>Content Structure:</strong> Semantic HTML5, clear sections, scannable formatting</li>
+            </ul>
+          </div>
+
+          <div class="seo-card">
+            <h3>Content Strategy</h3>
+            <p>Search engines reward depth, clarity, and expertise.</p>
+            <ul>
+              <li><strong>User Intent Matching:</strong> Answer the actual question being asked</li>
+              <li><strong>E-E-A-T Signals:</strong> Author bios, citations, industry credentials</li>
+              <li><strong>Comprehensive Coverage:</strong> Topic clusters, pillar content, supporting articles</li>
+              <li><strong>Freshness:</strong> Regular updates, publish dates, content versioning</li>
+              <li><strong>Internal Linking:</strong> Contextual links, topic relationships, authority flow</li>
+            </ul>
+          </div>
+
+          <div class="seo-card highlight">
+            <h3>AEO: The Next Frontier</h3>
+            <p>Optimizing for AI-powered answer engines requires different thinking.</p>
+            <ul>
+              <li><strong>Clear Answers First:</strong> Put the answer in the first paragraph</li>
+              <li><strong>Question-Based Headers:</strong> "What is X?", "How does Y work?"</li>
+              <li><strong>Structured Lists:</strong> Tables, bullet points, step-by-step guides</li>
+              <li><strong>Contextual Definitions:</strong> Explain technical terms inline</li>
+              <li><strong>Comparison Content:</strong> "X vs Y" formats AI systems love to cite</li>
+              <li><strong>Statistical Evidence:</strong> Numbers, data, measurable claims</li>
+            </ul>
+            <p class="card-note">
+              When ChatGPT or Perplexity cites a source, it's pulling from sites with clear structure, factual content, and comprehensive answers. We build for that.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Web Vitals -->
+    <section class="vitals-section">
+      <div class="container">
+        <h2 class="section-title">Core Web Vitals: The Metrics That Matter</h2>
+        <p class="section-intro">
+          Since 2021, Google's Core Web Vitals are a direct ranking factor. These three metrics measure real user experience.
+        </p>
+
+        <div class="vitals-grid">
+          <div class="vital-card">
+            <div class="vital-header">
+              <h3>LCP</h3>
+              <span class="vital-full">Largest Contentful Paint</span>
+            </div>
+            <div class="vital-metric">
+              <span class="metric-target">Target: &lt;2.5s</span>
+              <span class="metric-our">We hit: &lt;1.2s</span>
+            </div>
+            <p class="vital-description">
+              Measures when the largest content element (image, video, text block) becomes visible.
+              This is what users perceive as "the page has loaded."
+            </p>
+            <p class="vital-how"><strong>How we optimize:</strong></p>
+            <ul>
+              <li>Pre-compressed images (WebP, AVIF)</li>
+              <li>Above-the-fold priority loading</li>
+              <li>Critical CSS inlined, fonts preloaded</li>
+              <li>Static generation eliminates server processing</li>
+            </ul>
+          </div>
+
+          <div class="vital-card">
+            <div class="vital-header">
+              <h3>FID / INP</h3>
+              <span class="vital-full">First Input Delay / Interaction to Next Paint</span>
+            </div>
+            <div class="vital-metric">
+              <span class="metric-target">Target: &lt;100ms</span>
+              <span class="metric-our">We hit: &lt;50ms</span>
+            </div>
+            <p class="vital-description">
+              Measures how quickly your site responds to user interactions (clicks, taps, key presses).
+              Google replaced FID with INP in 2024 for more comprehensive interactivity measurement.
+            </p>
+            <p class="vital-how"><strong>How we optimize:</strong></p>
+            <ul>
+              <li>Minimal JavaScript (only what's needed)</li>
+              <li>No render-blocking scripts</li>
+              <li>Event handlers optimized with debouncing</li>
+              <li>Lazy loading for non-critical interactions</li>
+            </ul>
+          </div>
+
+          <div class="vital-card">
+            <div class="vital-header">
+              <h3>CLS</h3>
+              <span class="vital-full">Cumulative Layout Shift</span>
+            </div>
+            <div class="vital-metric">
+              <span class="metric-target">Target: &lt;0.1</span>
+              <span class="metric-our">We hit: &lt;0.05</span>
+            </div>
+            <p class="vital-description">
+              Measures unexpected layout shifts—when elements move as the page loads.
+              You know that frustrating moment when you're about to click and the page jumps? That's CLS.
+            </p>
+            <p class="vital-how"><strong>How we optimize:</strong></p>
+            <ul>
+              <li>Reserved space for images/embeds with aspect-ratio</li>
+              <li>Font loading strategies (font-display: swap)</li>
+              <li>No dynamic content injection above the fold</li>
+              <li>Proper sizing for ads and iframes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vitals-impact">
+          <h3>The Business Impact</h3>
+          <div class="impact-grid">
+            <div class="impact-stat">
+              <span class="stat-number">53%</span>
+              <span class="stat-label">of mobile users abandon sites that take &gt;3s to load</span>
+            </div>
+            <div class="impact-stat">
+              <span class="stat-number">1s</span>
+              <span class="stat-label">delay = 7% reduction in conversions (Amazon data)</span>
+            </div>
+            <div class="impact-stat">
+              <span class="stat-number">+15%</span>
+              <span class="stat-label">increase in page views from improving Core Web Vitals (Google case study)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Build -->
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-title">What We Build</h2>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Marketing & Brand Sites</h3>
+            <p>High-conversion landing pages, brand showcases, and lead generation engines built for speed and SEO.</p>
+            <ul>
+              <li>Custom design systems</li>
+              <li>A/B testing infrastructure</li>
+              <li>Analytics and conversion tracking</li>
+              <li>CMS integration (Sanity, Contentful, Obsidian)</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>E-Commerce Platforms</h3>
+            <p>Fast, secure online stores optimized for conversion and search visibility.</p>
+            <ul>
+              <li>Headless commerce (Shopify, Commerce.js)</li>
+              <li>Custom checkout flows</li>
+              <li>Product schema markup for rich snippets</li>
+              <li>Performance-optimized product images</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>SaaS & Web Applications</h3>
+            <p>Complex web applications with login systems, dashboards, and real-time features.</p>
+            <ul>
+              <li>Authentication & authorization</li>
+              <li>Database design and optimization</li>
+              <li>API development (REST, GraphQL, tRPC)</li>
+              <li>Admin panels and analytics dashboards</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Documentation Sites</h3>
+            <p>Technical documentation and knowledge bases optimized for both human readers and AI citation.</p>
+            <ul>
+              <li>Search-optimized structure</li>
+              <li>Version control and change tracking</li>
+              <li>Code syntax highlighting</li>
+              <li>API reference generation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="stack-section">
+      <div class="container">
+        <h2 class="section-title">Our Technology Stack</h2>
+        <p class="section-intro">We choose tools based on performance, maintainability, and long-term viability—not trends.</p>
+
+        <div class="stack-grid">
+          <div class="stack-category">
+            <h3>Static Site Generators</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Astro</span>
+              <span class="stack-tag">Next.js</span>
+              <span class="stack-tag">Remix</span>
+            </div>
+            <p>Framework-agnostic, island architecture, zero JS by default</p>
+          </div>
+
+          <div class="stack-category">
+            <h3>Frontend Frameworks</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Svelte</span>
+              <span class="stack-tag">Vue</span>
+            </div>
+            <p>When interactivity is needed, we choose the right tool for the job</p>
+          </div>
+
+          <div class="stack-category">
+            <h3>Styling</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Tailwind CSS</span>
+              <span class="stack-tag">CSS Modules</span>
+              <span class="stack-tag">Vanilla CSS</span>
+            </div>
+            <p>Optimized for minimal bundle size and maintainability</p>
+          </div>
+
+          <div class="stack-category">
+            <h3>Headless CMS</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Sanity</span>
+              <span class="stack-tag">Contentful</span>
+              <span class="stack-tag">Obsidian</span>
+              <span class="stack-tag">MDX</span>
+            </div>
+            <p>Content management without WordPress overhead</p>
+          </div>
+
+          <div class="stack-category">
+            <h3>Deployment</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Vercel</span>
+              <span class="stack-tag">Netlify</span>
+              <span class="stack-tag">Cloudflare Pages</span>
+              <span class="stack-tag">AWS Amplify</span>
+            </div>
+            <p>Global CDN, instant deploys, automatic HTTPS</p>
+          </div>
+
+          <div class="stack-category">
+            <h3>Performance Tools</h3>
+            <div class="stack-tags">
+              <span class="stack-tag">Lighthouse CI</span>
+              <span class="stack-tag">WebPageTest</span>
+              <span class="stack-tag">Bundle Analyzer</span>
+              <span class="stack-tag">Chrome DevTools</span>
+            </div>
+            <p>Continuous performance monitoring and optimization</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Build a Website That Performs?</h2>
+        <p>Let's talk about your project. We'll show you exactly how we'll achieve 95+ Lighthouse scores and top-tier search visibility.</p>
+        <a href="/about" class="cta-button">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* ==================== LAYOUT ==================== */
+  .service-page {
+    background: var(--color-depth);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--color-strike);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* ==================== SECTIONS ==================== */
+  .intro-section,
+  .evaluation-section,
+  .comparison-section,
+  .seo-section,
+  .vitals-section,
+  .services-section,
+  .stack-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+
+  .section-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin-bottom: var(--space-xl);
+  }
+
+  /* ==================== INTRO SECTION ==================== */
+  .intro-content h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    font-weight: 500;
+  }
+
+  .intro-content p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  /* ==================== EVALUATION GRID ==================== */
+  .evaluation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .evaluation-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-md);
+  }
+
+  .card-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .card-tag {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--color-strike);
+    background: rgba(0, 217, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .card-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .card-list {
+    list-style: none;
+    margin-bottom: var(--space-md);
+  }
+
+  .card-list li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .card-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  .card-list li strong {
+    color: var(--color-text-primary);
+  }
+
+  .card-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm);
+    background: rgba(0, 217, 255, 0.05);
+    border-radius: 4px;
+    margin-top: var(--space-sm);
+  }
+
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .metric-value {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .metric-value.poor {
+    color: #ff6b6b;
+  }
+
+  .metric-value.good {
+    color: #51cf66;
+  }
+
+  .card-insight {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: rgba(0, 217, 255, 0.05);
+    border-left: 3px solid var(--color-strike);
+    border-radius: 4px;
+  }
+
+  .card-insight strong {
+    color: var(--color-strike);
+  }
+
+  .card-note {
+    margin-top: var(--space-md);
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+
+  /* ==================== COMPARISON TABLE ==================== */
+  .comparison-table {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: var(--color-surface);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .header-cell {
+    padding: var(--space-md);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .cell {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cell.metric-col {
+    background: rgba(0, 217, 255, 0.03);
+  }
+
+  .cell strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .metric-context {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .cell .value {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .cell.wordpress .value {
+    color: #ff6b6b;
+  }
+
+  .cell.custom .value {
+    color: #51cf66;
+  }
+
+  .cell .context {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .comparison-insight {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .comparison-insight h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .comparison-insight p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .comparison-insight strong {
+    color: var(--color-strike);
+  }
+
+  /* ==================== SEO GRID ==================== */
+  .seo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .seo-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .seo-card.highlight {
+    border-color: var(--color-strike);
+    background: rgba(0, 217, 255, 0.03);
+  }
+
+  .seo-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .seo-card > p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .seo-card ul {
+    list-style: none;
+  }
+
+  .seo-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .seo-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+    font-weight: 700;
+  }
+
+  .seo-card ul li strong {
+    color: var(--color-text-primary);
+  }
+
+  /* ==================== VITALS GRID ==================== */
+  .vitals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .vital-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .vital-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .vital-header h3 {
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    color: var(--color-strike);
+    font-weight: 700;
+  }
+
+  .vital-full {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .vital-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm);
+    background: rgba(0, 217, 255, 0.05);
+    border-radius: 4px;
+  }
+
+  .metric-target,
+  .metric-our {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+  }
+
+  .metric-target {
+    color: var(--color-text-secondary);
+  }
+
+  .metric-our {
+    color: #51cf66;
+    font-weight: 700;
+  }
+
+  .vital-description {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .vital-how {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .vital-card ul {
+    list-style: none;
+  }
+
+  .vital-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .vital-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  .vitals-impact {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .vitals-impact h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .impact-stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--color-strike);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ==================== SERVICES GRID ==================== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card > p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .service-card ul {
+    list-style: none;
+  }
+
+  .service-card ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-strike);
+  }
+
+  /* ==================== STACK GRID ==================== */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .stack-category {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+  }
+
+  .stack-category h3 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .stack-tag {
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--color-strike);
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+  }
+
+  .stack-category > p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ==================== CTA SECTION ==================== */
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: var(--color-surface);
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
+    color: var(--color-depth);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 217, 255, 0.3);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 968px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .header-cell:not(.metric-col),
+    .cell:not(.metric-col) {
+      display: none;
+    }
+
+    .header-cell.metric-col {
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .title {
+      font-size: 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+    }
+  }
+</style>

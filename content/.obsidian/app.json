@@ -1,0 +1,12 @@
+{
+  "templates": {
+    "folder": "templates"
+  },
+  "attachmentFolderPath": "images",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "blog",
+  "showLineNumber": false,
+  "spellcheck": true,
+  "strictLineBreaks": false,
+  "vimMode": false
+}
