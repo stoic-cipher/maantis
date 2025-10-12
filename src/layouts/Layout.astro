@@ -1,6 +1,7 @@
 ---
 import Logo from '../components/Logo.astro';
 import MaantisLogoHeader from '../components/react/MaantisLogoHeader';
+import MaantisLogoIcon from '../components/react/MaantisLogoIcon';
 
 interface Props {
 	title?: string;
@@ -19,17 +20,80 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Primary Meta Tags -->
+		<title>{fullTitle}</title>
+		<meta name="title" content={fullTitle} />
 		<meta name="description" content={description} />
+		<meta name="keywords" content="web development, high-performance websites, cloud infrastructure, Astro, React, Next.js, AWS, performance engineering, website optimization, custom web applications" />
+		<meta name="author" content="MAANTIS" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={`https://maantis.com${Astro.url.pathname}`} />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={`https://maantis.com${Astro.url.pathname}`} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://maantis.com/logo.png" />
+		<meta property="og:site_name" content="MAANTIS" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={`https://maantis.com${Astro.url.pathname}`} />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="https://maantis.com/logo.png" />
+
+		<!-- Additional Meta Tags -->
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#0a1628" />
+		<meta name="format-detection" content="telephone=no" />
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-		<title>{fullTitle}</title>
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "MAANTIS",
+				"alternateName": "Modular Adaptive Architecture for Networked Technology and Intelligent Systems",
+				"url": "https://maantis.com",
+				"logo": "https://maantis.com/logo.png",
+				"description": "High-performance web development consultancy specializing in custom websites, web applications, and cloud infrastructure.",
+				"sameAs": [
+					"https://github.com/maantis"
+				],
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"email": "contact@maantis.com",
+					"contactType": "Customer Service"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "US"
+				},
+				"areaServed": "Worldwide",
+				"serviceType": [
+					"Web Development",
+					"Cloud Infrastructure",
+					"Performance Engineering",
+					"Custom Web Applications"
+				]
+			}
+		</script>
 	</head>
 	<body>
 		<nav class="nav">
@@ -52,10 +116,14 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 			<div class="footer-container">
 				<div class="footer-content">
 					<div class="footer-brand">
-						<div class="logo-footer">
-							<span class="logo-mark">M</span>
-							<span class="logo-text">MAANTIS</span>
-						</div>
+						<MaantisLogoIcon
+							size="medium"
+							interactive={true}
+							showText={true}
+							autoRotate={false}
+							variant="neural"
+							client:load
+						/>
 						<p class="footer-tagline">Precision. Adaptation. Intelligence.</p>
 					</div>
 					<div class="footer-links">
@@ -232,34 +300,17 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		margin-bottom: var(--space-xl);
 	}
 
-	.footer-brand .logo-footer {
+	.footer-brand {
 		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-bottom: var(--space-sm);
-		font-weight: 700;
-		font-size: 1.25rem;
-		color: var(--color-text-primary);
-	}
-
-	.footer-brand .logo-footer .logo-mark {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 36px;
-		height: 36px;
-		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-strike-dim) 100%);
-		color: var(--color-depth);
-		font-weight: 700;
-		font-size: 1.25rem;
-		border-radius: 6px;
-		font-family: var(--font-mono);
+		flex-direction: column;
+		gap: var(--space-sm);
 	}
 
 	.footer-tagline {
 		color: var(--color-text-secondary);
 		font-family: var(--font-mono);
 		font-size: 0.875rem;
+		margin-top: var(--space-xs);
 	}
 
 	.footer-links {
