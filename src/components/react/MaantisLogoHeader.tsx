@@ -32,7 +32,7 @@ export default function MaantisLogoHeader({ autoRotate = true }: MaantisLogoHead
 
   return (
     <div
-      className="flex items-center gap-3"
+      className="flex items-center gap-3 sm:gap-2 max-sm:gap-[0.4rem]"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       style={{ cursor: 'pointer' }}
@@ -40,6 +40,7 @@ export default function MaantisLogoHeader({ autoRotate = true }: MaantisLogoHead
       <svg
         width="40"
         height="40"
+        className="sm:w-8 sm:h-8 max-sm:w-7 max-sm:h-7"
         viewBox="0 0 200 200"
         fill="none"
         style={{
@@ -146,7 +147,7 @@ export default function MaantisLogoHeader({ autoRotate = true }: MaantisLogoHead
 
       <div className="flex flex-col">
         <span
-          className="text-xl font-extralight tracking-[0.3em]"
+          className="text-xl sm:text-base max-sm:text-sm font-extralight tracking-[0.3em] sm:tracking-[0.2em] max-sm:tracking-[0.15em]"
           style={{
             color: v.primary,
             fontFamily: 'ui-sans-serif, system-ui, sans-serif',

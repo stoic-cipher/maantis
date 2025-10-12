@@ -59,10 +59,13 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		<meta name="theme-color" content="#0a1628" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<!-- Fonts -->
+		<!-- Fonts - optimized loading -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+		<noscript>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+		</noscript>
 
 		<!-- JSON-LD Structured Data -->
 		<script type="application/ld+json">
@@ -100,14 +103,7 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		<nav class="nav">
 			<div class="nav-container">
 				<a href="/" class="logo-link">
-					<!-- Static logo for instant LCP -->
-				<div class="logo-static">
 					<MaantisLogoHeaderStatic />
-				</div>
-				<!-- Animated logo loads when browser is idle -->
-				<div class="logo-animated">
-					<MaantisLogoHeader autoRotate={true} client:idle />
-				</div>
 				</a>
 				<div class="nav-links">
 					<a href="/">Home</a>
@@ -154,29 +150,6 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 				</div>
 			</div>
 		</footer>
-
-		<script>
-			// Switch from static to animated logo when React component hydrates
-			document.addEventListener('astro:page-load', () => {
-				const logoLink = document.querySelector('.logo-link');
-				const observer = new MutationObserver(() => {
-					const animatedLogo = document.querySelector('.logo-animated astro-island');
-					if (animatedLogo) {
-						// Wait a brief moment for the component to be ready
-						requestIdleCallback(() => {
-							logoLink?.classList.add('hydrated');
-							observer.disconnect();
-						});
-					}
-				});
-
-				// Observe the animated logo container for changes
-				const animatedContainer = document.querySelector('.logo-animated');
-				if (animatedContainer) {
-					observer.observe(animatedContainer, { childList: true, subtree: true });
-				}
-			});
-		</script>
 	</body>
 </html>
 
@@ -269,30 +242,11 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		display: flex;
 		align-items: center;
 		text-decoration: none;
-		transition: all 0.2s;
-		position: relative;
+		transition: opacity 0.2s;
 	}
 
 	.logo-link:hover {
 		opacity: 0.9;
-	}
-
-	/* Show static logo initially, hide when animated loads */
-	.logo-static {
-		display: block;
-	}
-
-	.logo-animated {
-		display: none;
-	}
-
-	/* Hide static and show animated when hydrated */
-	.logo-link.hydrated .logo-static {
-		display: none;
-	}
-
-	.logo-link.hydrated .logo-animated {
-		display: block;
 	}
 
 	.nav-links {
