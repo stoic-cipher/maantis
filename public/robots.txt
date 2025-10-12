@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (add if needed)
+# Disallow: /admin/
+
+# Sitemap
+Sitemap: https://maantis.com/sitemap-index.xml

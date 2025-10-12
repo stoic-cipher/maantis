@@ -2,10 +2,17 @@
 import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site: 'https://maantis.com',
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/admin/'),
+    }),
+  ],
   // Performance optimizations
   compressHTML: true,
   build: {

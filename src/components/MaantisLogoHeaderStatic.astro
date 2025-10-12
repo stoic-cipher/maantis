@@ -1,0 +1,115 @@
+---
+// Static, non-animated version of the MAANTIS logo for instant rendering
+// This displays before the React component hydrates
+---
+
+<div class="maantis-logo-header-static">
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <filter id="glow-static">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <radialGradient id="sphereGrad-static">
+        <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8"/>
+        <stop offset="50%" stop-color="#00d9ff" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#0496ff" stop-opacity="0.3"/>
+      </radialGradient>
+    </defs>
+
+    <g transform="translate(100, 100)">
+      <!-- 16 photoreceptor rays - static position -->
+      {[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((angle) => {
+        const rad = (angle * Math.PI) / 180;
+        const outerX = Math.cos(rad) * 50;
+        const outerY = Math.sin(rad) * 50;
+        const innerX = Math.cos(rad) * 15;
+        const innerY = Math.sin(rad) * 15;
+        const opacity = 0.6;
+
+        return (
+          <g filter="url(#glow-static)">
+            <line
+              x1={innerX}
+              y1={innerY}
+              x2={outerX}
+              y2={outerY}
+              stroke="#00d9ff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              opacity={opacity}
+            />
+            <circle
+              cx={outerX}
+              cy={outerY}
+              r="1.5"
+              fill="#00ffff"
+              opacity={opacity * 0.8}
+            />
+          </g>
+        );
+      })}
+
+      <!-- Central core - glowing sphere -->
+      <circle
+        r="12"
+        fill="url(#sphereGrad-static)"
+        filter="url(#glow-static)"
+        opacity="0.6"
+      />
+      <circle
+        r="8"
+        fill="#00d9ff"
+        filter="url(#glow-static)"
+        opacity="0.8"
+      />
+      <circle
+        r="4"
+        fill="#00ffff"
+        opacity="0.95"
+      />
+      <circle
+        r="2"
+        fill="#ffffff"
+      />
+    </g>
+  </svg>
+
+  <div class="logo-text">
+    <span class="logo-title">MAANTIS</span>
+  </div>
+</div>
+
+<style>
+  .maantis-logo-header-static {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-title {
+    font-size: 1.25rem;
+    font-weight: 200;
+    letter-spacing: 0.3em;
+    color: #00d9ff;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    line-height: 1.2;
+  }
+</style>

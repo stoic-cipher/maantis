@@ -1,6 +1,7 @@
 ---
 import Logo from '../components/Logo.astro';
 import MaantisLogoHeader from '../components/react/MaantisLogoHeader';
+import MaantisLogoHeaderStatic from '../components/MaantisLogoHeaderStatic.astro';
 import MaantisLogoIcon from '../components/react/MaantisLogoIcon';
 
 interface Props {
@@ -99,7 +100,14 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		<nav class="nav">
 			<div class="nav-container">
 				<a href="/" class="logo-link">
-					<MaantisLogoHeader autoRotate={true} client:load />
+					<!-- Static logo for instant LCP -->
+				<div class="logo-static">
+					<MaantisLogoHeaderStatic />
+				</div>
+				<!-- Animated logo loads when browser is idle -->
+				<div class="logo-animated">
+					<MaantisLogoHeader autoRotate={true} client:idle />
+				</div>
 				</a>
 				<div class="nav-links">
 					<a href="/">Home</a>
@@ -122,7 +130,7 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 							showText={true}
 							autoRotate={false}
 							variant="neural"
-							client:load
+							client:visible
 						/>
 						<p class="footer-tagline">Precision. Adaptation. Intelligence.</p>
 					</div>
@@ -146,6 +154,29 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			// Switch from static to animated logo when React component hydrates
+			document.addEventListener('astro:page-load', () => {
+				const logoLink = document.querySelector('.logo-link');
+				const observer = new MutationObserver(() => {
+					const animatedLogo = document.querySelector('.logo-animated astro-island');
+					if (animatedLogo) {
+						// Wait a brief moment for the component to be ready
+						requestIdleCallback(() => {
+							logoLink?.classList.add('hydrated');
+							observer.disconnect();
+						});
+					}
+				});
+
+				// Observe the animated logo container for changes
+				const animatedContainer = document.querySelector('.logo-animated');
+				if (animatedContainer) {
+					observer.observe(animatedContainer, { childList: true, subtree: true });
+				}
+			});
+		</script>
 	</body>
 </html>
 
@@ -239,10 +270,29 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		align-items: center;
 		text-decoration: none;
 		transition: all 0.2s;
+		position: relative;
 	}
 
 	.logo-link:hover {
 		opacity: 0.9;
+	}
+
+	/* Show static logo initially, hide when animated loads */
+	.logo-static {
+		display: block;
+	}
+
+	.logo-animated {
+		display: none;
+	}
+
+	/* Hide static and show animated when hydrated */
+	.logo-link.hydrated .logo-static {
+		display: none;
+	}
+
+	.logo-link.hydrated .logo-animated {
+		display: block;
 	}
 
 	.nav-links {
