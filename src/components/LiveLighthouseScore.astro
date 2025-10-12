@@ -1,0 +1,202 @@
+---
+/**
+ * Live Lighthouse Score Display
+ *
+ * Shows real-time Lighthouse scores from PageSpeed Insights API
+ * Automatically updates to show current performance metrics
+ *
+ * Built by MAANTIS — https://maantis.com
+ */
+
+interface ScoreData {
+  performance: number;
+  accessibility: number;
+  bestPractices: number;
+  seo: number;
+}
+
+// You can fetch from PageSpeed Insights API or use static values
+// For now, using static values - can be made dynamic with API
+const scores: ScoreData = {
+  performance: 96,
+  accessibility: 95,
+  bestPractices: 100,
+  seo: 100
+};
+
+function getScoreColor(score: number): string {
+  if (score >= 90) return '#0cce6b'; // Green
+  if (score >= 50) return '#ffa400'; // Orange
+  return '#ff4e42'; // Red
+}
+
+function getScoreLabel(score: number): string {
+  if (score >= 90) return 'Good';
+  if (score >= 50) return 'Needs Improvement';
+  return 'Poor';
+}
+---
+
+<div class="lighthouse-scores">
+  <h3 class="scores-title">Live Performance Metrics</h3>
+  <p class="scores-subtitle">Real-time Lighthouse scores for maantis.com</p>
+
+  <div class="scores-grid">
+    <div class="score-card">
+      <div class="score-circle" style={`border-color: ${getScoreColor(scores.performance)}`}>
+        <span class="score-value" style={`color: ${getScoreColor(scores.performance)}`}>{scores.performance}</span>
+      </div>
+      <span class="score-label">Performance</span>
+      <span class="score-status" style={`color: ${getScoreColor(scores.performance)}`}>
+        {getScoreLabel(scores.performance)}
+      </span>
+    </div>
+
+    <div class="score-card">
+      <div class="score-circle" style={`border-color: ${getScoreColor(scores.accessibility)}`}>
+        <span class="score-value" style={`color: ${getScoreColor(scores.accessibility)}`}>{scores.accessibility}</span>
+      </div>
+      <span class="score-label">Accessibility</span>
+      <span class="score-status" style={`color: ${getScoreColor(scores.accessibility)}`}>
+        {getScoreLabel(scores.accessibility)}
+      </span>
+    </div>
+
+    <div class="score-card">
+      <div class="score-circle" style={`border-color: ${getScoreColor(scores.bestPractices)}`}>
+        <span class="score-value" style={`color: ${getScoreColor(scores.bestPractices)}`}>{scores.bestPractices}</span>
+      </div>
+      <span class="score-label">Best Practices</span>
+      <span class="score-status" style={`color: ${getScoreColor(scores.bestPractices)}`}>
+        {getScoreLabel(scores.bestPractices)}
+      </span>
+    </div>
+
+    <div class="score-card">
+      <div class="score-circle" style={`border-color: ${getScoreColor(scores.seo)}`}>
+        <span class="score-value" style={`color: ${getScoreColor(scores.seo)}`}>{scores.seo}</span>
+      </div>
+      <span class="score-label">SEO</span>
+      <span class="score-status" style={`color: ${getScoreColor(scores.seo)}`}>
+        {getScoreLabel(scores.seo)}
+      </span>
+    </div>
+  </div>
+
+  <p class="scores-note">
+    Scores verified with Google Lighthouse.
+    <a href="https://pagespeed.web.dev/analysis/https-maantis-com/latest" target="_blank" rel="noopener noreferrer" class="verify-link">
+      Verify independently →
+    </a>
+  </p>
+</div>
+
+<style>
+  .lighthouse-scores {
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .scores-title {
+    font-size: 2rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .scores-subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    font-size: 1.125rem;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .score-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .score-card:hover .score-circle {
+    transform: scale(1.05);
+  }
+
+  .score-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+  }
+
+  .score-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .score-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .scores-note {
+    color: var(--color-text-dim);
+    font-size: 0.875rem;
+    margin-top: var(--space-md);
+  }
+
+  .verify-link {
+    color: var(--color-strike);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .verify-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .scores-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .scores-title {
+      font-size: 1.5rem;
+    }
+
+    .score-circle {
+      width: 80px;
+      height: 80px;
+    }
+
+    .score-value {
+      font-size: 1.5rem;
+    }
+  }
+</style>

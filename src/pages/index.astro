@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Logo from '../components/Logo.astro';
 import AnimatedStats from '../components/AnimatedStats.astro';
+import LiveLighthouseScore from '../components/LiveLighthouseScore.astro';
 
 const performanceStats = [
   { value: '100', label: 'Lighthouse Score Target', suffix: '/100' },
@@ -143,6 +144,13 @@ const performanceStats = [
 				These aren't aspirational targets. These are the benchmarks we hit on production systems.
 			</p>
 			<AnimatedStats stats={performanceStats} />
+		</div>
+	</section>
+
+	<!-- Live Lighthouse Scores -->
+	<section class="lighthouse-section">
+		<div class="lighthouse-container">
+			<LiveLighthouseScore />
 		</div>
 	</section>
 
@@ -583,6 +591,18 @@ const performanceStats = [
 	.metrics {
 		padding: var(--space-2xl) 0;
 		background: var(--color-depth-light);
+	}
+
+	/* ==================== LIGHTHOUSE SECTION ==================== */
+	.lighthouse-section {
+		padding: var(--space-2xl) 0;
+		background: var(--color-surface);
+	}
+
+	.lighthouse-container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 var(--space-md);
 	}
 
 	.metrics-container {
