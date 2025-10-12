@@ -17,8 +17,8 @@ const {
 const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title : `${title} | MAANTIS`;
 
 // Analytics configuration - MAANTIS tracking
+// All analytics (including GA4) managed through GTM for centralized tag management
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-KNX9CT7D';
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-ZJJ5QNRF13';
 ---
 
 <!doctype html>
@@ -48,16 +48,6 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-ZJJ5QNRF13';
 			})(window,document,'script','dataLayer',GTM_ID);
 		</script>
 		<!-- End Google Tag Manager -->
-
-		<!-- Google Analytics (GA4) - Direct Implementation -->
-		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-		<script is:inline define:vars={{ GA4_ID }}>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', GA4_ID);
-		</script>
-		<!-- End Google Analytics -->
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
