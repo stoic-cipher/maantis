@@ -1,10 +1,24 @@
 // @ts-check
+/**
+ * ███╗   ███╗ █████╗  █████╗ ███╗   ██╗████████╗██╗███████╗
+ * ████╗ ████║██╔══██╗██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝
+ * ██╔████╔██║███████║███████║██╔██╗ ██║   ██║   ██║███████╗
+ * ██║╚██╔╝██║██╔══██║██╔══██║██║╚██╗██║   ██║   ██║╚════██║
+ * ██║ ╚═╝ ██║██║  ██║██║  ██║██║ ╚████║   ██║   ██║███████║
+ * ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚══════╝
+ *
+ * Modular Adaptive Architecture for Networked Technology and Intelligent Systems
+ *
+ * Engineering precision. Built to last.
+ * https://maantis.com
+ */
+
 import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+// Astro Configuration - Optimized for performance
 export default defineConfig({
   site: 'https://maantis.com',
   integrations: [
@@ -13,34 +27,34 @@ export default defineConfig({
       filter: (page) => !page.includes('/admin/'),
     }),
   ],
-  // Performance optimizations
+
+  // MAANTIS Performance Optimizations
+  // Every byte counts. Every millisecond matters.
   compressHTML: true,
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'auto', // Reduce requests, increase speed
   },
 
-  // Vite configuration for additional minification
+  // Vite: Fast, minimal, precise
   vite: {
     build: {
-      minify: 'esbuild',
+      minify: 'esbuild', // The mantis shrimp strikes fast
       cssMinify: true,
     },
   },
 
-  // Markdown configuration for Obsidian compatibility
+  // Markdown: Content is king, structure is everything
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
       wrap: true,
     },
-    // Enable GitHub Flavored Markdown for better Obsidian compatibility
-    // Supports tables, task lists, strikethrough, autolinks, and more
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm], // GFM for maximum compatibility
     rehypePlugins: [],
   },
 
-  // Optimize images
+  // Image optimization: See everything, load nothing unnecessary
   image: {
-    domains: [],
+    domains: [], // Mantis shrimp have 16 color receptors. We optimize for all of them.
   },
 });
