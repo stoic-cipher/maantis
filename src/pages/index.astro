@@ -34,22 +34,23 @@ const performanceStats = [
 				</div>
 			</div>
 
-			<div class="hero-visual">
-				<!-- Lottie Animation Placeholder - Add your own animation here:
-				<div class="hero-animation-layer">
-					<dotlottie-player
-						src="/animations/ocean-waves.json"
-						background="transparent"
-						speed="0.5"
-						loop
-						autoplay
-						style="width: 100%; height: 100%; opacity: 0.25;"
-					></dotlottie-player>
-				</div>
-				-->
+			<div class="hero-visual" id="hero-visual">
+				<div class="gradient-orb gradient-orb-1"></div>
+				<div class="gradient-orb gradient-orb-2"></div>
 				<div class="grid-background"></div>
-				<div class="logo-showcase">
-					<Logo size="large" interactive={false} />
+				<div class="particles">
+					{[...Array(20)].map((_, i) => (
+						<div class="particle" style={`
+							--delay: ${i * 0.2}s;
+							--duration: ${15 + Math.random() * 10}s;
+							--x: ${Math.random() * 100}%;
+							--y: ${Math.random() * 100}%;
+						`}></div>
+					))}
+				</div>
+				<div class="logo-showcase" id="logo-container">
+					<Logo size="large" interactive={true} autoRotate={false} />
+					<div class="logo-glow"></div>
 				</div>
 			</div>
 		</div>
@@ -262,30 +263,43 @@ const performanceStats = [
 	}
 
 	.hero-title-main {
-		font-size: 4rem;
-		font-weight: 700;
-		letter-spacing: -0.02em;
+		font-size: 4.5rem;
+		font-weight: 800;
+		letter-spacing: -0.03em;
 		background: linear-gradient(135deg, var(--color-strike) 0%, var(--color-accent) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		line-height: 1;
+		text-shadow: 0 0 60px rgba(0, 217, 255, 0.3);
+		animation: titleGlow 3s ease-in-out infinite;
+	}
+
+	@keyframes titleGlow {
+		0%, 100% {
+			filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.3));
+		}
+		50% {
+			filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.5));
+		}
 	}
 
 	.hero-title-sub {
 		font-size: 1rem;
 		color: var(--color-text-secondary);
-		font-weight: 500;
-		line-height: 1.4;
+		font-weight: 400;
+		line-height: 1.5;
 		max-width: 500px;
+		opacity: 0.8;
 	}
 
 	.hero-description {
-		font-size: 1.125rem;
-		line-height: 1.7;
+		font-size: 1.2rem;
+		line-height: 1.8;
 		color: var(--color-text-secondary);
 		margin-bottom: var(--space-xl);
-		max-width: 540px;
+		max-width: 560px;
+		opacity: 0.9;
 	}
 
 	.hero-cta {
@@ -331,17 +345,50 @@ const performanceStats = [
 	/* Hero Visual */
 	.hero-visual {
 		position: relative;
-		height: 500px;
+		height: 600px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		overflow: hidden;
 	}
 
-	.hero-animation-layer {
+	.gradient-orb {
 		position: absolute;
-		inset: 0;
-		z-index: 0;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.15;
 		pointer-events: none;
+		animation: float 20s ease-in-out infinite;
+	}
+
+	.gradient-orb-1 {
+		width: 400px;
+		height: 400px;
+		background: radial-gradient(circle, var(--color-strike) 0%, transparent 70%);
+		top: 10%;
+		left: 10%;
+		animation-delay: 0s;
+	}
+
+	.gradient-orb-2 {
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+		bottom: 10%;
+		right: 10%;
+		animation-delay: -10s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(30px, -30px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
 	}
 
 	.grid-background {
@@ -350,16 +397,91 @@ const performanceStats = [
 		background-image:
 			linear-gradient(var(--color-border) 1px, transparent 1px),
 			linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
-		background-size: 50px 50px;
-		opacity: 0.3;
-		mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+		background-size: 40px 40px;
+		opacity: 0.2;
+		mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
 		pointer-events: none;
 		z-index: 1;
+		animation: gridPulse 8s ease-in-out infinite;
+	}
+
+	@keyframes gridPulse {
+		0%, 100% {
+			opacity: 0.2;
+		}
+		50% {
+			opacity: 0.3;
+		}
+	}
+
+	.particles {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.particle {
+		position: absolute;
+		width: 2px;
+		height: 2px;
+		background: var(--color-strike);
+		border-radius: 50%;
+		left: var(--x);
+		top: var(--y);
+		opacity: 0;
+		animation: particleFloat var(--duration) linear infinite;
+		animation-delay: var(--delay);
+		box-shadow: 0 0 4px var(--color-strike);
+	}
+
+	@keyframes particleFloat {
+		0% {
+			transform: translateY(0) translateX(0);
+			opacity: 0;
+		}
+		10% {
+			opacity: 0.6;
+		}
+		50% {
+			opacity: 0.8;
+		}
+		90% {
+			opacity: 0.3;
+		}
+		100% {
+			transform: translateY(-100px) translateX(20px);
+			opacity: 0;
+		}
 	}
 
 	.logo-showcase {
 		position: relative;
 		z-index: 2;
+		transition: transform 0.3s ease-out;
+	}
+
+	.logo-glow {
+		position: absolute;
+		inset: -50%;
+		background: radial-gradient(circle, rgba(0, 217, 255, 0.3) 0%, transparent 70%);
+		filter: blur(60px);
+		opacity: 0.6;
+		pointer-events: none;
+		z-index: -1;
+		animation: glowPulse 4s ease-in-out infinite;
+	}
+
+	@keyframes glowPulse {
+		0%, 100% {
+			opacity: 0.4;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.7;
+			transform: scale(1.1);
+		}
 	}
 
 	/* ==================== MANIFESTO SECTION ==================== */
@@ -869,3 +991,60 @@ const performanceStats = [
 		}
 	}
 </style>
+
+<script>
+	// Proximity-based logo interaction
+	const heroVisual = document.getElementById('hero-visual');
+	const logoContainer = document.getElementById('logo-container');
+
+	if (heroVisual && logoContainer) {
+		let rafId: number | null = null;
+
+		const handleMouseMove = (e: MouseEvent) => {
+			if (rafId) return;
+
+			rafId = requestAnimationFrame(() => {
+				const rect = heroVisual.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+
+				const centerX = rect.width / 2;
+				const centerY = rect.height / 2;
+
+				// Calculate distance from center
+				const deltaX = x - centerX;
+				const deltaY = y - centerY;
+				const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+				const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+
+				// Normalize distance (0 = center, 1 = edge)
+				const normalizedDistance = Math.min(distance / maxDistance, 1);
+
+				// Apply subtle tilt based on mouse position
+				const tiltX = (deltaY / centerY) * 8; // Max 8 degrees
+				const tiltY = (deltaX / centerX) * -8;
+
+				// Apply transform with smooth easing
+				logoContainer.style.transform = `
+					perspective(1000px)
+					rotateX(${tiltX}deg)
+					rotateY(${tiltY}deg)
+					scale(${1 + (1 - normalizedDistance) * 0.05})
+				`;
+
+				rafId = null;
+			});
+		};
+
+		const handleMouseLeave = () => {
+			if (rafId) {
+				cancelAnimationFrame(rafId);
+				rafId = null;
+			}
+			logoContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+		};
+
+		heroVisual.addEventListener('mousemove', handleMouseMove);
+		heroVisual.addEventListener('mouseleave', handleMouseLeave);
+	}
+</script>
