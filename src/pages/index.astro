@@ -39,12 +39,12 @@ const performanceStats = [
 				<div class="gradient-orb gradient-orb-2"></div>
 				<div class="grid-background"></div>
 				<div class="particles">
-					{[...Array(20)].map((_, i) => (
+					{[...Array(8)].map((_, i) => (
 						<div class="particle" style={`
-							--delay: ${i * 0.2}s;
-							--duration: ${15 + Math.random() * 10}s;
-							--x: ${Math.random() * 100}%;
-							--y: ${Math.random() * 100}%;
+							--delay: ${i * 0.3}s;
+							--duration: ${18 + i * 2}s;
+							--x: ${20 + Math.random() * 60}%;
+							--y: ${20 + Math.random() * 60}%;
 						`}></div>
 					))}
 				</div>
@@ -271,17 +271,7 @@ const performanceStats = [
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		line-height: 1;
-		text-shadow: 0 0 60px rgba(0, 217, 255, 0.3);
-		animation: titleGlow 3s ease-in-out infinite;
-	}
-
-	@keyframes titleGlow {
-		0%, 100% {
-			filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.3));
-		}
-		50% {
-			filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.5));
-		}
+		filter: drop-shadow(0 0 24px rgba(0, 217, 255, 0.3));
 	}
 
 	.hero-title-sub {
@@ -350,44 +340,43 @@ const performanceStats = [
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
+		content-visibility: auto;
 	}
 
 	.gradient-orb {
 		position: absolute;
 		border-radius: 50%;
-		filter: blur(80px);
-		opacity: 0.15;
+		filter: blur(40px);
+		opacity: 0.12;
 		pointer-events: none;
-		animation: float 20s ease-in-out infinite;
+		animation: float 25s ease-in-out infinite;
+		will-change: transform;
 	}
 
 	.gradient-orb-1 {
-		width: 400px;
-		height: 400px;
-		background: radial-gradient(circle, var(--color-strike) 0%, transparent 70%);
-		top: 10%;
-		left: 10%;
+		width: 300px;
+		height: 300px;
+		background: radial-gradient(circle, var(--color-strike) 0%, transparent 65%);
+		top: 15%;
+		left: 15%;
 		animation-delay: 0s;
 	}
 
 	.gradient-orb-2 {
-		width: 500px;
-		height: 500px;
-		background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
-		bottom: 10%;
-		right: 10%;
-		animation-delay: -10s;
+		width: 350px;
+		height: 350px;
+		background: radial-gradient(circle, var(--color-accent) 0%, transparent 65%);
+		bottom: 15%;
+		right: 15%;
+		animation-delay: -12s;
 	}
 
 	@keyframes float {
 		0%, 100% {
-			transform: translate(0, 0) scale(1);
+			transform: translate(0, 0);
 		}
-		33% {
-			transform: translate(30px, -30px) scale(1.1);
-		}
-		66% {
-			transform: translate(-20px, 20px) scale(0.9);
+		50% {
+			transform: translate(20px, -20px);
 		}
 	}
 
@@ -402,16 +391,6 @@ const performanceStats = [
 		mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
 		pointer-events: none;
 		z-index: 1;
-		animation: gridPulse 8s ease-in-out infinite;
-	}
-
-	@keyframes gridPulse {
-		0%, 100% {
-			opacity: 0.2;
-		}
-		50% {
-			opacity: 0.3;
-		}
 	}
 
 	.particles {
@@ -433,25 +412,22 @@ const performanceStats = [
 		opacity: 0;
 		animation: particleFloat var(--duration) linear infinite;
 		animation-delay: var(--delay);
-		box-shadow: 0 0 4px var(--color-strike);
+		will-change: transform, opacity;
 	}
 
 	@keyframes particleFloat {
 		0% {
-			transform: translateY(0) translateX(0);
+			transform: translate3d(0, 0, 0);
 			opacity: 0;
 		}
 		10% {
-			opacity: 0.6;
-		}
-		50% {
-			opacity: 0.8;
+			opacity: 0.5;
 		}
 		90% {
-			opacity: 0.3;
+			opacity: 0.2;
 		}
 		100% {
-			transform: translateY(-100px) translateX(20px);
+			transform: translate3d(10px, -80px, 0);
 			opacity: 0;
 		}
 	}
@@ -460,27 +436,27 @@ const performanceStats = [
 		position: relative;
 		z-index: 2;
 		transition: transform 0.3s ease-out;
+		will-change: transform;
 	}
 
 	.logo-glow {
 		position: absolute;
-		inset: -50%;
-		background: radial-gradient(circle, rgba(0, 217, 255, 0.3) 0%, transparent 70%);
-		filter: blur(60px);
-		opacity: 0.6;
+		inset: -40%;
+		background: radial-gradient(circle, rgba(0, 217, 255, 0.25) 0%, transparent 65%);
+		filter: blur(30px);
+		opacity: 0.5;
 		pointer-events: none;
 		z-index: -1;
-		animation: glowPulse 4s ease-in-out infinite;
+		animation: glowPulse 5s ease-in-out infinite;
+		will-change: opacity;
 	}
 
 	@keyframes glowPulse {
 		0%, 100% {
 			opacity: 0.4;
-			transform: scale(1);
 		}
 		50% {
-			opacity: 0.7;
-			transform: scale(1.1);
+			opacity: 0.6;
 		}
 	}
 
