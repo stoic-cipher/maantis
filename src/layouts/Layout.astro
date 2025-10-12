@@ -15,6 +15,10 @@ const {
 } = Astro.props;
 
 const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title : `${title} | MAANTIS`;
+
+// Analytics configuration - MAANTIS tracking
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-KNX9CT7D';
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID || ''; // Set in GTM or environment variable
 ---
 
 <!doctype html>
@@ -35,6 +39,26 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 	Like what you see? We're hiring: contact@maantis.com
 	-->
 	<head>
+		<!-- Google Tag Manager -->
+		<script is:inline define:vars={{ GTM_ID }}>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer',GTM_ID);
+		</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- Google Analytics (GA4) - Direct Implementation -->
+		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+		<script is:inline define:vars={{ GA4_ID }}>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', GA4_ID);
+		</script>
+		<!-- End Google Analytics -->
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -71,6 +95,9 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 
 		<!-- Additional Meta Tags -->
 		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
 		<meta name="theme-color" content="#0a1628" />
 		<meta name="format-detection" content="telephone=no" />
 
@@ -110,6 +137,12 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		</script>
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
 		<!-- 🦐 Navigation: Fast. Precise. Adaptive. Like the mantis shrimp's strike. -->
 		<nav class="nav">
 			<div class="nav-container">
@@ -255,8 +288,8 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 		--color-border: #2d3748;
 
 		--color-text-primary: #e0e1dd;
-		--color-text-secondary: #778da9;
-		--color-text-dim: #415a77;
+		--color-text-secondary: #9db4ce; /* Improved contrast for WCAG AA compliance */
+		--color-text-dim: #6b8caf; /* Lightened for better readability */
 
 		/* Typography - optimized system fonts for instant load */
 		--font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
