@@ -146,7 +146,7 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || ''; // Set in GTM or environment
 		<!-- 🦐 Navigation: Fast. Precise. Adaptive. Like the mantis shrimp's strike. -->
 		<nav class="nav">
 			<div class="nav-container">
-				<a href="/" class="logo-link">
+				<a href="/" class="logo-link" aria-label="MAANTIS - Home">
 					<MaantisLogoHeaderStatic />
 				</a>
 				<div class="nav-links">
@@ -187,7 +187,7 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || ''; // Set in GTM or environment
 						<div class="footer-column">
 							<h4>Connect</h4>
 							<a href="mailto:contact@maantis.com">Contact</a>
-							<a href="https://github.com/maantis" target="_blank" rel="noopener">GitHub</a>
+							<a href="https://github.com/maantis" target="_blank" rel="noopener noreferrer">GitHub</a>
 						</div>
 					</div>
 				</div>
@@ -379,6 +379,8 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || ''; // Set in GTM or environment
 		letter-spacing: 0.01em;
 		transition: color 0.2s;
 		position: relative;
+		padding: 0.75rem 0.5rem; /* Ensure 48px minimum tap target height */
+		display: inline-block;
 	}
 
 	.nav-links a:hover {
