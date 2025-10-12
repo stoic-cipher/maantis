@@ -45,7 +45,7 @@ const performanceStats = [
 				-->
 				<div class="grid-background"></div>
 				<div class="logo-showcase">
-					<Logo size="large" interactive={true} />
+					<Logo size="large" interactive={false} />
 				</div>
 			</div>
 		</div>
@@ -223,9 +223,7 @@ const performanceStats = [
 		min-height: calc(100vh - var(--nav-height));
 		display: flex;
 		align-items: center;
-		background:
-			linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(13, 27, 42, 0.9) 100%),
-			url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center/cover no-repeat;
+		background: linear-gradient(180deg, var(--color-depth) 0%, var(--color-depth-light) 100%);
 		overflow: hidden;
 	}
 
