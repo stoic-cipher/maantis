@@ -18,7 +18,7 @@ const fullTitle = title === 'MAANTIS — Modular Adaptive Architecture' ? title 
 
 // Analytics configuration - MAANTIS tracking
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-KNX9CT7D';
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-9CLDKC15YF';
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-QTPS7JNW46';
 ---
 
 <!doctype html>
@@ -60,7 +60,7 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-9CLDKC15YF';
 		<!-- End Google Analytics -->
 
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
 		<!-- Primary Meta Tags -->
 		<title>{fullTitle}</title>
@@ -139,7 +139,7 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-9CLDKC15YF';
 	<body>
 		<!-- Google Tag Manager (noscript) -->
 		<noscript>
-			<iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+			<iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe>
 		</noscript>
 		<!-- End Google Tag Manager (noscript) -->
 
