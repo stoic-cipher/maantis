@@ -346,10 +346,10 @@ const performanceStats = [
 	.gradient-orb {
 		position: absolute;
 		border-radius: 50%;
-		filter: blur(40px);
-		opacity: 0.12;
+		filter: blur(30px);
+		opacity: 0.10;
 		pointer-events: none;
-		animation: float 25s ease-in-out infinite;
+		animation: float 30s ease-in-out infinite;
 		will-change: transform;
 	}
 
@@ -413,6 +413,11 @@ const performanceStats = [
 		animation: particleFloat var(--duration) linear infinite;
 		animation-delay: var(--delay);
 		will-change: transform, opacity;
+		animation-play-state: paused;
+	}
+
+	.particles.active .particle {
+		animation-play-state: running;
 	}
 
 	@keyframes particleFloat {
@@ -443,20 +448,20 @@ const performanceStats = [
 		position: absolute;
 		inset: -40%;
 		background: radial-gradient(circle, rgba(0, 217, 255, 0.25) 0%, transparent 65%);
-		filter: blur(30px);
-		opacity: 0.5;
+		filter: blur(25px);
+		opacity: 0.4;
 		pointer-events: none;
 		z-index: -1;
-		animation: glowPulse 5s ease-in-out infinite;
+		animation: glowPulse 6s ease-in-out infinite;
 		will-change: opacity;
 	}
 
 	@keyframes glowPulse {
 		0%, 100% {
-			opacity: 0.4;
+			opacity: 0.35;
 		}
 		50% {
-			opacity: 0.6;
+			opacity: 0.5;
 		}
 	}
 
@@ -969,58 +974,86 @@ const performanceStats = [
 </style>
 
 <script>
-	// Proximity-based logo interaction
+	// Defer particle animations until hero is visible
+	const particles = document.querySelector('.particles');
+	if (particles) {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					particles.classList.add('active');
+					observer.disconnect(); // Only activate once
+				}
+			});
+		}, { threshold: 0.1 });
+
+		observer.observe(particles);
+	}
+
+	// Proximity-based logo interaction (optimized for performance)
 	const heroVisual = document.getElementById('hero-visual');
 	const logoContainer = document.getElementById('logo-container');
 
 	if (heroVisual && logoContainer) {
 		let rafId: number | null = null;
+		let lastUpdateTime = 0;
+		const throttleDelay = 16; // ~60fps max update rate
 
-		const handleMouseMove = (e: MouseEvent) => {
-			if (rafId) return;
+		// Only enable interaction on desktop devices with good performance
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const isMobile = window.innerWidth < 768;
 
-			rafId = requestAnimationFrame(() => {
-				const rect = heroVisual.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
+		if (!prefersReducedMotion && !isMobile) {
+			const handleMouseMove = (e: MouseEvent) => {
+				const now = performance.now();
 
-				const centerX = rect.width / 2;
-				const centerY = rect.height / 2;
+				// Throttle updates to max 60fps
+				if (now - lastUpdateTime < throttleDelay || rafId) return;
 
-				// Calculate distance from center
-				const deltaX = x - centerX;
-				const deltaY = y - centerY;
-				const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-				const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+				lastUpdateTime = now;
+				rafId = requestAnimationFrame(() => {
+					const rect = heroVisual.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
 
-				// Normalize distance (0 = center, 1 = edge)
-				const normalizedDistance = Math.min(distance / maxDistance, 1);
+					const centerX = rect.width / 2;
+					const centerY = rect.height / 2;
 
-				// Apply subtle tilt based on mouse position
-				const tiltX = (deltaY / centerY) * 8; // Max 8 degrees
-				const tiltY = (deltaX / centerX) * -8;
+					// Calculate distance from center
+					const deltaX = x - centerX;
+					const deltaY = y - centerY;
+					const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+					const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
 
-				// Apply transform with smooth easing
-				logoContainer.style.transform = `
-					perspective(1000px)
-					rotateX(${tiltX}deg)
-					rotateY(${tiltY}deg)
-					scale(${1 + (1 - normalizedDistance) * 0.05})
-				`;
+					// Normalize distance (0 = center, 1 = edge)
+					const normalizedDistance = Math.min(distance / maxDistance, 1);
 
-				rafId = null;
-			});
-		};
+					// Apply subtle tilt based on mouse position (reduced from 8 to 6 degrees)
+					const tiltX = (deltaY / centerY) * 6;
+					const tiltY = (deltaX / centerX) * -6;
 
-		const handleMouseLeave = () => {
-			if (rafId) {
-				cancelAnimationFrame(rafId);
-				rafId = null;
-			}
-			logoContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-		};
+					// Apply transform with smooth easing
+					logoContainer.style.transform = `
+						perspective(1000px)
+						rotateX(${tiltX}deg)
+						rotateY(${tiltY}deg)
+						scale(${1 + (1 - normalizedDistance) * 0.03})
+					`;
 
-		heroVisual.addEventListener('mousemove', handleMouseMove);
-		heroVisual.addEventListener('mouseleave', handleMouseLeave);
+					rafId = null;
+				});
+			};
+
+			const handleMouseLeave = () => {
+				if (rafId) {
+					cancelAnimationFrame(rafId);
+					rafId = null;
+				}
+				logoContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+			};
+
+			// Use passive event listeners for better scroll performance
+			heroVisual.addEventListener('mousemove', handleMouseMove, { passive: true });
+			heroVisual.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+		}
 	}
 </script>
