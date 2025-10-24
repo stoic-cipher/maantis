@@ -63,9 +63,11 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-KNX9CT7D';
 		<!-- Canonical URL -->
 		<link rel="canonical" href={`https://maantis.com${Astro.url.pathname}`} />
 
-		<!-- Favicon -->
+		<!-- Favicon - Multiple formats for better browser support -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -94,37 +96,120 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-KNX9CT7D';
 		<!-- Fonts - using system fonts for optimal performance -->
 		<!-- Google Fonts removed to eliminate render-blocking -->
 
-		<!-- JSON-LD Structured Data -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "MAANTIS",
-				"alternateName": "Modular Adaptive Architecture for Networked Technology and Intelligent Systems",
-				"url": "https://maantis.com",
-				"logo": "https://maantis.com/logo.png",
-				"description": "High-performance web development consultancy specializing in custom websites, web applications, and cloud infrastructure.",
-				"sameAs": [
-					"https://github.com/maantis"
-				],
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"email": "contact@maantis.com",
-					"contactType": "Customer Service"
+		<!-- JSON-LD Structured Data - Enhanced for better search appearance -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "Organization",
+					"@id": "https://maantis.com/#organization",
+					"name": "MAANTIS",
+					"alternateName": "Modular Adaptive Architecture for Networked Technology and Intelligent Systems",
+					"url": "https://maantis.com",
+					"logo": {
+						"@type": "ImageObject",
+						"url": "https://maantis.com/logo.png",
+						"width": 512,
+						"height": 512
+					},
+					"description": "High-performance web development consultancy specializing in custom websites, web applications, and cloud infrastructure optimized for speed, scale, and reliability.",
+					"foundingDate": "2024",
+					"slogan": "Precision. Adaptation. Intelligence.",
+					"sameAs": [
+						"https://github.com/maantis"
+					],
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"email": "contact@maantis.com",
+						"contactType": "Customer Service",
+						"areaServed": "Worldwide",
+						"availableLanguage": "English"
+					},
+					"address": {
+						"@type": "PostalAddress",
+						"addressCountry": "US"
+					},
+					"areaServed": {
+						"@type": "Place",
+						"name": "Worldwide"
+					},
+					"hasOfferCatalog": {
+						"@type": "OfferCatalog",
+						"name": "Web Development Services",
+						"itemListElement": [
+							{
+								"@type": "Offer",
+								"itemOffered": {
+									"@type": "Service",
+									"name": "Website Development",
+									"description": "High-performance custom websites built for speed, SEO, and conversion"
+								}
+							},
+							{
+								"@type": "Offer",
+								"itemOffered": {
+									"@type": "Service",
+									"name": "Cloud Infrastructure",
+									"description": "Scalable, resilient infrastructure on AWS, Azure, and GCP"
+								}
+							},
+							{
+								"@type": "Offer",
+								"itemOffered": {
+									"@type": "Service",
+									"name": "Performance Engineering",
+									"description": "Speed optimization, Core Web Vitals, and performance tuning"
+								}
+							},
+							{
+								"@type": "Offer",
+								"itemOffered": {
+									"@type": "Service",
+									"name": "Distributed Systems",
+									"description": "Microservices, event-driven architectures, and real-time data pipelines"
+								}
+							}
+						]
+					}
 				},
-				"address": {
-					"@type": "PostalAddress",
-					"addressCountry": "US"
+				{
+					"@type": "WebSite",
+					"@id": "https://maantis.com/#website",
+					"url": "https://maantis.com",
+					"name": "MAANTIS",
+					"description": "High-performance web development consultancy",
+					"publisher": {
+						"@id": "https://maantis.com/#organization"
+					},
+					"potentialAction": {
+						"@type": "SearchAction",
+						"target": {
+							"@type": "EntryPoint",
+							"urlTemplate": "https://maantis.com/search?q={search_term_string}"
+						},
+						"query-input": "required name=search_term_string"
+					}
 				},
-				"areaServed": "Worldwide",
-				"serviceType": [
-					"Web Development",
-					"Cloud Infrastructure",
-					"Performance Engineering",
-					"Custom Web Applications"
-				]
-			}
-		</script>
+				{
+					"@type": "ProfessionalService",
+					"@id": "https://maantis.com/#service",
+					"name": "MAANTIS - High-Performance Web Development",
+					"image": "https://maantis.com/logo.png",
+					"description": "Professional web development services including custom website development, cloud infrastructure, performance engineering, and distributed systems architecture.",
+					"priceRange": "$$$$",
+					"address": {
+						"@type": "PostalAddress",
+						"addressCountry": "US"
+					},
+					"areaServed": "Worldwide",
+					"serviceType": ["Web Development", "Cloud Infrastructure", "Performance Engineering", "Software Consulting"],
+					"provider": {
+						"@id": "https://maantis.com/#organization"
+					}
+				}
+			]
+		})} />
+
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->
