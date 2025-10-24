@@ -21,6 +21,7 @@ import sitemap from '@astrojs/sitemap';
 // Astro Configuration - Optimized for performance
 export default defineConfig({
   site: 'https://maantis.com',
+  trailingSlash: 'always', // Enforce trailing slashes to prevent redirect issues
   integrations: [
     react(),
     sitemap({

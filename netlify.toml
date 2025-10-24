@@ -3,7 +3,7 @@
   command = "npm run build"
   publish = "dist"
 
-# Redirect rules for SPA-like behavior (optional)
+# Redirect rules for 404 handling
 [[redirects]]
   from = "/*"
   to = "/404.html"

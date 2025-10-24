@@ -1,0 +1,19 @@
+# Cloudflare Pages / Netlify redirect rules
+# Enforce trailing slashes with 301 redirects to prevent duplicate content and indexing issues
+
+# Redirect URLs without trailing slash to version with trailing slash
+/about  /about/  301
+/services  /services/  301
+/blog  /blog/  301
+/services/website-development  /services/website-development/  301
+/services/cloud-infrastructure  /services/cloud-infrastructure/  301
+/services/performance-engineering  /services/performance-engineering/  301
+/services/distributed-systems  /services/distributed-systems/  301
+
+# Redirect blog posts without trailing slash
+/blog/the-mantis-shrimp-principle  /blog/the-mantis-shrimp-principle/  301
+/blog/welcome-to-maantis  /blog/welcome-to-maantis/  301
+/blog/wordpress-is-costing-you-twice-as-much  /blog/wordpress-is-costing-you-twice-as-much/  301
+
+# 404 fallback
+/*  /404.html  404
